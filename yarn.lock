@@ -1331,6 +1331,13 @@
   dependencies:
     "@react-router/node" "7.13.2"
 
+"@react-router/fs-routes@^7.13.2":
+  version "7.13.2"
+  resolved "https://registry.yarnpkg.com/@react-router/fs-routes/-/fs-routes-7.13.2.tgz#d047a719749046b6835e6bb9f72f72235f418752"
+  integrity sha512-z7n0BSgWW4UP+ZK0jokdAZ0Jc8UaL8wlbvTw3APQBKBzne5BCbbxnMNJI0SdWqp00hDajXGwnR0TxR3lyYE31g==
+  dependencies:
+    minimatch "^9.0.0"
+
 "@react-router/node@7.13.2":
   version "7.13.2"
   resolved "https://registry.yarnpkg.com/@react-router/node/-/node-7.13.2.tgz#49866e7aa54e53c13f0a1f02175c09f7a7bdbcba"
@@ -1743,6 +1750,11 @@ babel-dead-code-elimination@^1.0.6:
     "@babel/traverse" "^7.23.7"
     "@babel/types" "^7.23.6"
 
+balanced-match@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
+  integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
+
 balanced-match@^4.0.2:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-4.0.4.tgz#bfb10662feed8196a2c62e7c68e17720c274179a"
@@ -1797,6 +1809,13 @@ body-parser@~1.20.3:
     raw-body "~2.5.3"
     type-is "~1.6.18"
     unpipe "~1.0.0"
+
+brace-expansion@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-2.0.3.tgz#0493338bdd58e319b1039c67cf7ee439892c01d9"
+  integrity sha512-MCV/fYJEbqx68aE58kv2cA/kiky1G8vux3OR6/jbS+jIMe/6fJWa0DTzJU7dqijOWYwHi1t29FlfYI9uytqlpA==
+  dependencies:
+    balanced-match "^1.0.0"
 
 brace-expansion@^5.0.5:
   version "5.0.5"
@@ -3125,6 +3144,13 @@ minimatch@^10.0.1:
   integrity sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==
   dependencies:
     brace-expansion "^5.0.5"
+
+minimatch@^9.0.0:
+  version "9.0.9"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.9.tgz#9b0cb9fcb78087f6fd7eababe2511c4d3d60574e"
+  integrity sha512-OBwBN9AL4dqmETlpS2zasx+vTeWclWzkblfZk7KTA5j3jeOONz/tRCnZomUyvNg83wL5Zv9Ss6HMJXAgL8R2Yg==
+  dependencies:
+    brace-expansion "^2.0.2"
 
 minimist@^1.2.6:
   version "1.2.8"

@@ -1,7 +1,7 @@
-import type { Route } from "./+types/home";
 import { LandingModule } from "../module/LandingModule/landing";
+import type { MetaFunction } from "react-router";
 
-export function meta({}: Route.MetaArgs) {
+export const meta: MetaFunction = () => {
   return [
     { title: "Shaney Zoya Fiandi | Information Systems Student & Software Engineer Portfolio" },
     {

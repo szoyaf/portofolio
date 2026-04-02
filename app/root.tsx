@@ -10,6 +10,13 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: 'Shaney Zoya Fiandi | Information Systems Student & Software Engineer Portfolio' },
+    { name: 'Shaney Zoya Fiandi', content: 'Information Systems student and Software Engineer' },
+  ];
+}
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
