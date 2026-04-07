@@ -374,6 +374,25 @@ body {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  --color-yellow: var(--yellow);
+  --color-light-yellow: var(--light-yellow);
+  --color-lighter-yellow: var(--lighter-yellow);
+  --color-lightest-yellow: var(--lightest-yellow);
+  --color-kinda-yellow: var(--kinda-yellow);
+  --color-dark-yellow: var(--dark-yellow);
+
+  --color-blue: var(--blue);
+  --color-light-blue: var(--light-blue);
+  --color-dark-blue: var(--dark-blue);
+  --color-bgblue: var(--bgblue);
+
+  --color-red: var(--red);
+  --color-light-red: var(--light-red);
+  --color-bright-red: var(--bright-red);
+  
+  --color-tblack: var(--tblack);
+  --color-twhite: var(--twhite);
 }
 
 :root {
@@ -409,6 +428,25 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --yellow: oklch(0.7082 0.1482 71.75);
+  --light-yellow: oklch(0.8148 0.1514 78.49);
+  --lighter-yellow: oklch(0.8783 0.1211 81.8);
+  --lightest-yellow: oklch(0.9416 0.0584 83);
+  --kinda-yellow: oklch(0.6817 0.139 72.88);
+  --dark-yellow: oklch(0.6184 0.1292 63.33);
+
+  --blue: oklch(0.4608 0.0659 235.43);
+  --light-blue: oklch(0.6925 0.0606 228.17);
+  --dark-blue: oklch(0.4309 0.0773 231.87);
+  --bgblue: oklch(0.5155 0.079 229.44);
+
+  --red: oklch(0.4183 0.095 26.27);
+  --light-red: oklch(0.524 0.1127 25.82);
+  --bright-red: oklch(0.5112 0.209771 29.2339);
+
+  --tblack: oklch(0.1957 0 0);
+  --twhite: oklch(0.9672 0 0);
 }
 
 .dark {
@@ -443,6 +481,25 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --yellow: oklch(0.7082 0.1482 71.75);
+  --light-yellow: oklch(0.8148 0.1514 78.49);
+  --lighter-yellow: oklch(0.8783 0.1211 81.8);
+  --lightest-yellow: oklch(0.9416 0.0584 83);
+  --kinda-yellow: oklch(0.6817 0.139 72.88);
+  --dark-yellow: oklch(0.6184 0.1292 63.33);
+
+  --blue: oklch(0.4608 0.0659 235.43);
+  --light-blue: oklch(0.6925 0.0606 228.17);
+  --dark-blue: oklch(0.4309 0.0773 231.87);
+  --bgblue: oklch(0.5155 0.079 229.44);
+
+  --red: oklch(0.4183 0.095 26.27);
+  --light-red: oklch(0.524 0.1127 25.82);
+  --bright-red: oklch(0.5112 0.209771 29.2339);
+
+  --tblack: oklch(0.1957 0 0);
+  --twhite: oklch(0.9672 0 0);
 }
 
 @layer base {

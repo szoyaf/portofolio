@@ -23,7 +23,7 @@ export const meta: MetaFunction = () => {
     },
     { property: "og:type", content: "website" },
   ];
-}
+};
 
 export default function LandingPage() {
   return <LandingModule />;
