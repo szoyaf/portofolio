@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fonts/minecraft/Minecraft.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,22 +18,32 @@
 @custom-variant disabled (&:disabled);
 
 @theme {
-  --font-sans: "Press Start 2P", "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Minecraft", "Geist Variable", "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --font-geologica: 'Geologica', sans-serif;
 
   --text-h1: 2.5rem;
   --text-h1--line-height: 44px;
-  --text-h2: 1.2rem;
-  --text-h2--line-height: 22px;
-  --text-h3: 1rem;
-  --text-h3--line-height: 19px;
+  --text-h2: 2rem;
+  --text-h2--line-height: 36px;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 30px;
+  --text-h4: 1.3rem;
+  --text-h4--line-height: 26px;
+  --text-h5: 1.2rem;
+  --text-h5--line-height: 22px;
+  --text-h6: 1rem;
+  --text-h6--line-height: 19px;
+  --text-h7: 0.95rem;
+  --text-h7--line-height: 17px;
 
   --text-p1: 0.875rem;
   --text-p1--line-height: 18px;
   --text-p2: 0.75rem;
-  --text-p2--line-height: 15px;
+  --text-p2--line-height: 16px;
+  --text-p3: 0.625rem;
+  --text-p3--line-height: 14px;
 
   --radius-2xl: calc(var(--radius) + 4px);
   --radius-xl: calc(var(--radius) + 2px);
@@ -324,7 +341,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #1f2937;
+  background: var(--tblack);
   display: block;
   pointer-events: none;
 }
@@ -333,9 +350,499 @@ body {
   margin: -2px;
 }
 
+.rounded-pixel-xl,
+.rounded-pixel-xl--wrapper {
+  clip-path: polygon(0px calc(100% - 42px),
+    2px calc(100% - 42px),
+    2px calc(100% - 36px),
+    4px calc(100% - 36px),
+    4px calc(100% - 34px),
+    4px calc(100% - 30px),
+    6px calc(100% - 30px),
+    6px calc(100% - 26px),
+    8px calc(100% - 26px),
+    8px calc(100% - 22px),
+    10px calc(100% - 22px),
+    10px calc(100% - 20px),
+    12px calc(100% - 20px),
+    12px calc(100% - 18px),
+    14px calc(100% - 18px),
+    14px calc(100% - 16px),
+    16px calc(100% - 14px),
+    18px calc(100% - 14px),
+    18px calc(100% - 12px),
+    20px calc(100% - 12px),
+    20px calc(100% - 10px),
+    22px calc(100% - 10px),
+    22px calc(100% - 8px),
+    26px calc(100% - 8px),
+    26px calc(100% - 6px),
+    30px calc(100% - 6px),
+    30px calc(100% - 4px),
+    34px calc(100% - 4px),
+    36px calc(100% - 4px),
+    36px calc(100% - 2px),
+    42px calc(100% - 2px),
+    42px 100%,
+    calc(100% - 42px) 100%,
+    calc(100% - 42px) calc(100% - 2px),
+    calc(100% - 36px) calc(100% - 2px),
+    calc(100% - 36px) calc(100% - 4px),
+    calc(100% - 34px) calc(100% - 4px),
+    calc(100% - 30px) calc(100% - 4px),
+    calc(100% - 30px) calc(100% - 6px),
+    calc(100% - 26px) calc(100% - 6px),
+    calc(100% - 26px) calc(100% - 8px),
+    calc(100% - 22px) calc(100% - 8px),
+    calc(100% - 22px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 12px),
+    calc(100% - 18px) calc(100% - 12px),
+    calc(100% - 18px) calc(100% - 14px),
+    calc(100% - 16px) calc(100% - 14px),
+    calc(100% - 14px) calc(100% - 16px),
+    calc(100% - 14px) calc(100% - 18px),
+    calc(100% - 12px) calc(100% - 18px),
+    calc(100% - 12px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 22px),
+    calc(100% - 8px) calc(100% - 22px),
+    calc(100% - 8px) calc(100% - 26px),
+    calc(100% - 6px) calc(100% - 26px),
+    calc(100% - 6px) calc(100% - 30px),
+    calc(100% - 4px) calc(100% - 30px),
+    calc(100% - 4px) calc(100% - 34px),
+    calc(100% - 4px) calc(100% - 36px),
+    calc(100% - 2px) calc(100% - 36px),
+    calc(100% - 2px) calc(100% - 42px),
+    100% calc(100% - 42px),
+    100% 42px,
+    calc(100% - 2px) 42px,
+    calc(100% - 2px) 36px,
+    calc(100% - 4px) 36px,
+    calc(100% - 4px) 34px,
+    calc(100% - 4px) 30px,
+    calc(100% - 6px) 30px,
+    calc(100% - 6px) 26px,
+    calc(100% - 8px) 26px,
+    calc(100% - 8px) 22px,
+    calc(100% - 10px) 22px,
+    calc(100% - 10px) 20px,
+    calc(100% - 12px) 20px,
+    calc(100% - 12px) 18px,
+    calc(100% - 14px) 18px,
+    calc(100% - 14px) 16px,
+    calc(100% - 16px) 14px,
+    calc(100% - 18px) 14px,
+    calc(100% - 18px) 12px,
+    calc(100% - 20px) 12px,
+    calc(100% - 20px) 10px,
+    calc(100% - 22px) 10px,
+    calc(100% - 22px) 8px,
+    calc(100% - 26px) 8px,
+    calc(100% - 26px) 6px,
+    calc(100% - 30px) 6px,
+    calc(100% - 30px) 4px,
+    calc(100% - 34px) 4px,
+    calc(100% - 36px) 4px,
+    calc(100% - 36px) 2px,
+    calc(100% - 42px) 2px,
+    calc(100% - 42px) 0px,
+    42px 0px,
+    42px 2px,
+    36px 2px,
+    36px 4px,
+    34px 4px,
+    30px 4px,
+    30px 6px,
+    26px 6px,
+    26px 8px,
+    22px 8px,
+    22px 10px,
+    20px 10px,
+    20px 12px,
+    18px 12px,
+    18px 14px,
+    16px 14px,
+    14px 16px,
+    14px 18px,
+    12px 18px,
+    12px 20px,
+    10px 20px,
+    10px 22px,
+    8px 22px,
+    8px 26px,
+    6px 26px,
+    6px 30px,
+    4px 30px,
+    4px 34px,
+    4px 36px,
+    2px 36px,
+    2px 42px,
+    0px 42px);
+  position: relative;
+}
+
+.rounded-pixel-xl,
+.rounded-pixel-xl--wrapper {
+  clip-path: polygon(0px calc(100% - 28px),
+    2px calc(100% - 28px),
+    2px calc(100% - 22px),
+    4px calc(100% - 22px),
+    4px calc(100% - 18px),
+    6px calc(100% - 18px),
+    6px calc(100% - 14px),
+    8px calc(100% - 14px),
+    8px calc(100% - 12px),
+    10px calc(100% - 12px),
+    10px calc(100% - 10px),
+    12px calc(100% - 10px),
+    12px calc(100% - 8px),
+    14px calc(100% - 8px),
+    14px calc(100% - 6px),
+    18px calc(100% - 6px),
+    18px calc(100% - 4px),
+    22px calc(100% - 4px),
+    22px calc(100% - 2px),
+    28px calc(100% - 2px),
+    28px 100%,
+    calc(100% - 28px) 100%,
+    calc(100% - 28px) calc(100% - 2px),
+    calc(100% - 22px) calc(100% - 2px),
+    calc(100% - 22px) calc(100% - 4px),
+    calc(100% - 18px) calc(100% - 4px),
+    calc(100% - 18px) calc(100% - 6px),
+    calc(100% - 14px) calc(100% - 6px),
+    calc(100% - 14px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 14px),
+    calc(100% - 6px) calc(100% - 14px),
+    calc(100% - 6px) calc(100% - 18px),
+    calc(100% - 4px) calc(100% - 18px),
+    calc(100% - 4px) calc(100% - 22px),
+    calc(100% - 2px) calc(100% - 22px),
+    calc(100% - 2px) calc(100% - 28px),
+    100% calc(100% - 28px),
+    100% 28px,
+    calc(100% - 2px) 28px,
+    calc(100% - 2px) 22px,
+    calc(100% - 4px) 22px,
+    calc(100% - 4px) 18px,
+    calc(100% - 6px) 18px,
+    calc(100% - 6px) 14px,
+    calc(100% - 8px) 14px,
+    calc(100% - 8px) 12px,
+    calc(100% - 10px) 12px,
+    calc(100% - 10px) 10px,
+    calc(100% - 12px) 10px,
+    calc(100% - 12px) 8px,
+    calc(100% - 14px) 8px,
+    calc(100% - 14px) 6px,
+    calc(100% - 18px) 6px,
+    calc(100% - 18px) 4px,
+    calc(100% - 22px) 4px,
+    calc(100% - 22px) 2px,
+    calc(100% - 28px) 2px,
+    calc(100% - 28px) 0px,
+    28px 0px,
+    28px 2px,
+    22px 2px,
+    22px 4px,
+    18px 4px,
+    18px 6px,
+    14px 6px,
+    14px 8px,
+    12px 8px,
+    12px 10px,
+    10px 10px,
+    10px 12px,
+    8px 12px,
+    8px 14px,
+    6px 14px,
+    6px 18px,
+    4px 18px,
+    4px 22px,
+    2px 22px,
+    2px 28px,
+    0px 28px);
+  position: relative;
+}
+
+.rounded-pixel-xl {
+  border: 4px solid transparent;
+}
+
+.rounded-pixel-xl--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+
+.rounded-pixel-xl--wrapper .rounded-pixel-xl {
+  display: block;
+  clip-path: polygon(4px 30px,
+    6px 30px,
+    6px 24px,
+    8px 24px,
+    8px 20px,
+    10px 20px,
+    10px 16px,
+    12px 16px,
+    12px 14px,
+    14px 14px,
+    14px 12px,
+    16px 12px,
+    16px 10px,
+    20px 10px,
+    20px 8px,
+    24px 8px,
+    24px 6px,
+    30px 6px,
+    30px 4px,
+    calc(100% - 30px) 4px,
+    calc(100% - 30px) 6px,
+    calc(100% - 24px) 6px,
+    calc(100% - 24px) 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 10px,
+    calc(100% - 16px) 10px,
+    calc(100% - 16px) 12px,
+    calc(100% - 14px) 12px,
+    calc(100% - 14px) 14px,
+    calc(100% - 12px) 14px,
+    calc(100% - 12px) 16px,
+    calc(100% - 10px) 16px,
+    calc(100% - 10px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) 24px,
+    calc(100% - 6px) 24px,
+    calc(100% - 6px) 30px,
+    calc(100% - 4px) 30px,
+    calc(100% - 4px) calc(100% - 30px),
+    calc(100% - 6px) calc(100% - 30px),
+    calc(100% - 6px) calc(100% - 24px),
+    calc(100% - 8px) calc(100% - 24px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 16px),
+    calc(100% - 12px) calc(100% - 16px),
+    calc(100% - 12px) calc(100% - 14px),
+    calc(100% - 14px) calc(100% - 14px),
+    calc(100% - 14px) calc(100% - 12px),
+    calc(100% - 16px) calc(100% - 12px),
+    calc(100% - 16px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 24px) calc(100% - 8px),
+    calc(100% - 24px) calc(100% - 6px),
+    calc(100% - 30px) calc(100% - 6px),
+    calc(100% - 30px) calc(100% - 4px),
+    30px calc(100% - 4px),
+    30px calc(100% - 6px),
+    24px calc(100% - 6px),
+    24px calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 10px),
+    16px calc(100% - 10px),
+    16px calc(100% - 12px),
+    14px calc(100% - 12px),
+    14px calc(100% - 14px),
+    12px calc(100% - 14px),
+    12px calc(100% - 16px),
+    10px calc(100% - 16px),
+    10px calc(100% - 20px),
+    8px calc(100% - 20px),
+    8px calc(100% - 24px),
+    6px calc(100% - 24px),
+    6px calc(100% - 30px),
+    4px calc(100% - 30px));
+}
+
+.rounded-pixel-xl::after,
+.rounded-pixel-xl--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 28px),
+    2px calc(100% - 28px),
+    2px calc(100% - 22px),
+    4px calc(100% - 22px),
+    4px calc(100% - 18px),
+    6px calc(100% - 18px),
+    6px calc(100% - 14px),
+    8px calc(100% - 14px),
+    8px calc(100% - 12px),
+    10px calc(100% - 12px),
+    10px calc(100% - 10px),
+    12px calc(100% - 10px),
+    12px calc(100% - 8px),
+    14px calc(100% - 8px),
+    14px calc(100% - 6px),
+    18px calc(100% - 6px),
+    18px calc(100% - 4px),
+    22px calc(100% - 4px),
+    22px calc(100% - 2px),
+    28px calc(100% - 2px),
+    28px 100%,
+    calc(100% - 28px) 100%,
+    calc(100% - 28px) calc(100% - 2px),
+    calc(100% - 22px) calc(100% - 2px),
+    calc(100% - 22px) calc(100% - 4px),
+    calc(100% - 18px) calc(100% - 4px),
+    calc(100% - 18px) calc(100% - 6px),
+    calc(100% - 14px) calc(100% - 6px),
+    calc(100% - 14px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 12px) calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 8px) calc(100% - 14px),
+    calc(100% - 6px) calc(100% - 14px),
+    calc(100% - 6px) calc(100% - 18px),
+    calc(100% - 4px) calc(100% - 18px),
+    calc(100% - 4px) calc(100% - 22px),
+    calc(100% - 2px) calc(100% - 22px),
+    calc(100% - 2px) calc(100% - 28px),
+    100% calc(100% - 28px),
+    100% 28px,
+    calc(100% - 2px) 28px,
+    calc(100% - 2px) 22px,
+    calc(100% - 4px) 22px,
+    calc(100% - 4px) 18px,
+    calc(100% - 6px) 18px,
+    calc(100% - 6px) 14px,
+    calc(100% - 8px) 14px,
+    calc(100% - 8px) 12px,
+    calc(100% - 10px) 12px,
+    calc(100% - 10px) 10px,
+    calc(100% - 12px) 10px,
+    calc(100% - 12px) 8px,
+    calc(100% - 14px) 8px,
+    calc(100% - 14px) 6px,
+    calc(100% - 18px) 6px,
+    calc(100% - 18px) 4px,
+    calc(100% - 22px) 4px,
+    calc(100% - 22px) 2px,
+    calc(100% - 28px) 2px,
+    calc(100% - 28px) 0px,
+    28px 0px,
+    28px 2px,
+    22px 2px,
+    22px 4px,
+    18px 4px,
+    18px 6px,
+    14px 6px,
+    14px 8px,
+    12px 8px,
+    12px 10px,
+    10px 10px,
+    10px 12px,
+    8px 12px,
+    8px 14px,
+    6px 14px,
+    6px 18px,
+    4px 18px,
+    4px 22px,
+    2px 22px,
+    2px 28px,
+    0px 28px,
+    0px 50%,
+    4px 50%,
+    4px 30px,
+    6px 30px,
+    6px 24px,
+    8px 24px,
+    8px 20px,
+    10px 20px,
+    10px 16px,
+    12px 16px,
+    12px 14px,
+    14px 14px,
+    14px 12px,
+    16px 12px,
+    16px 10px,
+    20px 10px,
+    20px 8px,
+    24px 8px,
+    24px 6px,
+    30px 6px,
+    30px 4px,
+    calc(100% - 30px) 4px,
+    calc(100% - 30px) 6px,
+    calc(100% - 24px) 6px,
+    calc(100% - 24px) 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 10px,
+    calc(100% - 16px) 10px,
+    calc(100% - 16px) 12px,
+    calc(100% - 14px) 12px,
+    calc(100% - 14px) 14px,
+    calc(100% - 12px) 14px,
+    calc(100% - 12px) 16px,
+    calc(100% - 10px) 16px,
+    calc(100% - 10px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) 24px,
+    calc(100% - 6px) 24px,
+    calc(100% - 6px) 30px,
+    calc(100% - 4px) 30px,
+    calc(100% - 4px) calc(100% - 30px),
+    calc(100% - 6px) calc(100% - 30px),
+    calc(100% - 6px) calc(100% - 24px),
+    calc(100% - 8px) calc(100% - 24px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 16px),
+    calc(100% - 12px) calc(100% - 16px),
+    calc(100% - 12px) calc(100% - 14px),
+    calc(100% - 14px) calc(100% - 14px),
+    calc(100% - 14px) calc(100% - 12px),
+    calc(100% - 16px) calc(100% - 12px),
+    calc(100% - 16px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 24px) calc(100% - 8px),
+    calc(100% - 24px) calc(100% - 6px),
+    calc(100% - 30px) calc(100% - 6px),
+    calc(100% - 30px) calc(100% - 4px),
+    30px calc(100% - 4px),
+    30px calc(100% - 6px),
+    24px calc(100% - 6px),
+    24px calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 10px),
+    16px calc(100% - 10px),
+    16px calc(100% - 12px),
+    14px calc(100% - 12px),
+    14px calc(100% - 14px),
+    12px calc(100% - 14px),
+    12px calc(100% - 16px),
+    10px calc(100% - 16px),
+    10px calc(100% - 20px),
+    8px calc(100% - 20px),
+    8px calc(100% - 24px),
+    6px calc(100% - 24px),
+    6px calc(100% - 30px),
+    4px calc(100% - 30px));
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000;
+  display: block;
+  pointer-events: none;
+}
+
+.rounded-pixel-xl::after {
+  margin: -4px;
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-sans: "Minecraft", "Geist Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -512,4 +1019,751 @@ body {
   html {
     @apply font-sans;
   }
+}
+
+@layer utilities {
+  .font-minecraft {
+    font-family: "Minecraft", "Geist Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .text-stroke-1 {
+    --text-stroke-width: 1px;
+    -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-2 {
+    --text-stroke-width: 2px;
+    -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-4 {
+    --text-stroke-width: 4px;
+    -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-6 {
+    --text-stroke-width: 6px;
+    -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-8 {
+    --text-stroke-width: 8px;
+    -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+    paint-order: stroke fill;
+  }
+
+  .text-stroke-10 {
+    --text-stroke-width: 10px;
+    -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+    paint-order: stroke fill;
+  }
+
+  @media (min-width: 48rem) {
+    .md\:text-stroke-1 {
+      --text-stroke-width: 1px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .md\:text-stroke-2 {
+      --text-stroke-width: 2px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .md\:text-stroke-4 {
+      --text-stroke-width: 4px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .md\:text-stroke-6 {
+      --text-stroke-width: 6px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .md\:text-stroke-8 {
+      --text-stroke-width: 8px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .md\:text-stroke-10 {
+      --text-stroke-width: 10px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:text-stroke-1 {
+      --text-stroke-width: 1px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .lg\:text-stroke-2 {
+      --text-stroke-width: 2px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .lg\:text-stroke-4 {
+      --text-stroke-width: 4px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .lg\:text-stroke-6 {
+      --text-stroke-width: 6px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .lg\:text-stroke-8 {
+      --text-stroke-width: 8px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .lg\:text-stroke-10 {
+      --text-stroke-width: 10px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:text-stroke-1 {
+      --text-stroke-width: 1px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .xl\:text-stroke-2 {
+      --text-stroke-width: 2px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .xl\:text-stroke-4 {
+      --text-stroke-width: 4px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .xl\:text-stroke-6 {
+      --text-stroke-width: 6px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .xl\:text-stroke-8 {
+      --text-stroke-width: 8px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+
+    .xl\:text-stroke-10 {
+      --text-stroke-width: 10px;
+      -webkit-text-stroke: var(--text-stroke-width) var(--text-stroke-color, #1f2937);
+      paint-order: stroke fill;
+    }
+  }
+
+  .text-stroke-black {
+    --text-stroke-color: oklch(0.1957 0 0);
+    -webkit-text-stroke-color: oklch(0.1957 0 0);
+  }
+
+  .text-stroke-light-yellow {
+    --text-stroke-color: var(--light-yellow);
+    -webkit-text-stroke-color: var(--light-yellow);
+  }
+
+  .text-stroke-lighter-yellow {
+    --text-stroke-color: var(--lighter-yellow);
+    -webkit-text-stroke-color: var(--lighter-yellow);
+  }
+
+  .text-stroke-lightest-yellow {
+    --text-stroke-color: var(--lightest-yellow);
+    -webkit-text-stroke-color: var(--lightest-yellow);
+  }
+
+  .text-stroke-kinda-yellow {
+    --text-stroke-color: var(--kinda-yellow);
+    -webkit-text-stroke-color: var(--kinda-yellow);
+  }
+
+  .text-stroke-dark-yellow {
+    --text-stroke-color: var(--dark-yellow);
+    -webkit-text-stroke-color: var(--dark-yellow);
+  }
+
+  .text-stroke-blue {
+    --text-stroke-color: var(--blue);
+    -webkit-text-stroke-color: var(--blue);
+  }
+
+  .text-stroke-light-blue {
+    --text-stroke-color: var(--light-blue);
+    -webkit-text-stroke-color: var(--light-blue);
+  }
+
+  .text-stroke-dark-blue {
+    --text-stroke-color: var(--dark-blue);
+    -webkit-text-stroke-color: var(--dark-blue);
+  }
+
+  .text-stroke-bgblue {
+    --text-stroke-color: var(--bgblue);
+    -webkit-text-stroke-color: var(--bgblue);
+  }
+
+  .text-stroke-red {
+    --text-stroke-color: var(--red);
+    -webkit-text-stroke-color: var(--red);
+  }
+
+  .text-stroke-light-red {
+    --text-stroke-color: var(--light-red);
+    -webkit-text-stroke-color: var(--light-red);
+  }
+
+  .text-stroke-bright-red {
+    --text-stroke-color: var(--bright-red);
+    -webkit-text-stroke-color: var(--bright-red);
+  }
+
+  .text-stroke-tblack {
+    --text-stroke-color: var(--tblack);
+    -webkit-text-stroke-color: var(--tblack);
+  }
+
+  .text-stroke-twhite {
+    --text-stroke-color: var(--twhite);
+    -webkit-text-stroke-color: var(--twhite);
+  }
+
+  .text-shadow-layer {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+  }
+
+  .text-shadow-layer::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    transform: translate(var(--text-shadow-x, 4px), var(--text-shadow-y, 4px));
+    color: var(--text-shadow-color, var(--tblack));
+    -webkit-text-stroke: var(--text-stroke-width, 0) var(--text-shadow-color, var(--tblack));
+    paint-order: stroke fill;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .text-shadow-2 {
+    --text-shadow-x: 2px;
+    --text-shadow-y: 2px;
+  }
+
+  .text-shadow-3 {
+    --text-shadow-x: 3px;
+    --text-shadow-y: 3px;
+  }
+
+  .text-shadow-4 {
+    --text-shadow-x: 4px;
+    --text-shadow-y: 4px;
+  }
+
+  .text-shadow-8 {
+    --text-shadow-x: 8px;
+    --text-shadow-y: 8px;
+  }
+
+  @media (min-width: 48rem) {
+    .md\:text-shadow-2 {
+      --text-shadow-x: 2px;
+      --text-shadow-y: 2px;
+    }
+
+    .md\:text-shadow-3 {
+      --text-shadow-x: 3px;
+      --text-shadow-y: 3px;
+    }
+
+    .md\:text-shadow-4 {
+      --text-shadow-x: 4px;
+      --text-shadow-y: 4px;
+    }
+
+    .md\:text-shadow-8 {
+      --text-shadow-x: 8px;
+      --text-shadow-y: 8px;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:text-shadow-2 {
+      --text-shadow-x: 2px;
+      --text-shadow-y: 2px;
+    }
+
+    .lg\:text-shadow-3 {
+      --text-shadow-x: 3px;
+      --text-shadow-y: 3px;
+    }
+
+    .lg\:text-shadow-4 {
+      --text-shadow-x: 4px;
+      --text-shadow-y: 4px;
+    }
+
+    .lg\:text-shadow-8 {
+      --text-shadow-x: 8px;
+      --text-shadow-y: 8px;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .xl\:text-shadow-2 {
+      --text-shadow-x: 2px;
+      --text-shadow-y: 2px;
+    }
+
+    .xl\:text-shadow-3 {
+      --text-shadow-x: 3px;
+      --text-shadow-y: 3px;
+    }
+
+    .xl\:text-shadow-4 {
+      --text-shadow-x: 4px;
+      --text-shadow-y: 4px;
+    }
+
+    .xl\:text-shadow-8 {
+      --text-shadow-x: 8px;
+      --text-shadow-y: 8px;
+    }
+  }
+
+  .text-shadow-black {
+    --text-shadow-color: oklch(0.1957 0 0);
+  }
+
+  .text-shadow-white {
+    --text-shadow-color: oklch(0.9672 0 0);
+  }
+
+  .text-shadow-light-yellow {
+    --text-shadow-color: var(--light-yellow);
+  }
+
+  .text-shadow-lighter-yellow {
+    --text-shadow-color: var(--lighter-yellow);
+  }
+
+  .text-shadow-kinda-yellow {
+    --text-shadow-color: var(--kinda-yellow);
+  }
+
+  .text-shadow-dark-yellow {
+    --text-shadow-color: var(--dark-yellow);
+  }
+
+  .text-shadow-blue {
+    --text-shadow-color: var(--blue);
+  }
+
+  .text-shadow-light-blue {
+    --text-shadow-color: var(--light-blue);
+  }
+
+  .text-shadow-dark-blue {
+    --text-shadow-color: var(--dark-blue);
+  }
+
+  .text-shadow-bgblue {
+    --text-shadow-color: var(--bgblue);
+  }
+
+  .text-shadow-red {
+    --text-shadow-color: var(--red);
+  }
+
+  .text-shadow-light-red {
+    --text-shadow-color: var(--light-red);
+  }
+
+  .text-shadow-bright-red {
+    --text-shadow-color: var(--bright-red);
+  }
+
+  .text-shadow-tblack {
+    --text-shadow-color: var(--tblack);
+  }
+
+  .text-shadow-twhite {
+    --text-shadow-color: var(--twhite);
+  }
+
+  .box-shadow-pixel {
+    box-shadow: var(--box-shadow-x, 10px) var(--box-shadow-y, 10px) 0 var(--box-shadow-color-final, var(--box-shadow-color, var(--tblack)));
+  }
+
+  .shape-shadow-pixel {
+    filter: drop-shadow(var(--box-shadow-x, 10px) var(--box-shadow-y, 10px) 0 var(--box-shadow-color-final, var(--box-shadow-color, #000000)));
+  }
+
+  .shape-shadow-host {
+    filter: drop-shadow(var(--box-shadow-x, 10px) var(--box-shadow-y, 10px) 0 var(--box-shadow-color-final, var(--box-shadow-color, #000000)));
+  }
+
+  .box-shadow-pixel-10 {
+    --box-shadow-x: 10px;
+    --box-shadow-y: 10px;
+  }
+
+  .box-shadow-pixel-5 {
+    --box-shadow-x: 5px;
+    --box-shadow-y: 5px;
+  }
+
+  .box-shadow-black {
+    --box-shadow-color: #000000;
+  }
+
+  .box-shadow-yellow {
+    --box-shadow-color: var(--yellow);
+  }
+
+  .box-shadow-light-yellow {
+    --box-shadow-color: var(--light-yellow);
+  }
+
+  .box-shadow-lighter-yellow {
+    --box-shadow-color: var(--lighter-yellow);
+  }
+
+  .box-shadow-lightest-yellow {
+    --box-shadow-color: var(--lightest-yellow);
+  }
+
+  .box-shadow-kinda-yellow {
+    --box-shadow-color: var(--kinda-yellow);
+  }
+
+  .box-shadow-dark-yellow {
+    --box-shadow-color: var(--dark-yellow);
+  }
+
+  .box-shadow-blue {
+    --box-shadow-color: var(--blue);
+  }
+
+  .box-shadow-light-blue {
+    --box-shadow-color: var(--light-blue);
+  }
+
+  .box-shadow-dark-blue {
+    --box-shadow-color: var(--dark-blue);
+  }
+
+  .box-shadow-bgblue {
+    --box-shadow-color: var(--bgblue);
+  }
+
+  .box-shadow-red {
+    --box-shadow-color: var(--red);
+  }
+
+  .box-shadow-light-red {
+    --box-shadow-color: var(--light-red);
+  }
+
+  .box-shadow-bright-red {
+    --box-shadow-color: var(--bright-red);
+  }
+
+  .box-shadow-tblack {
+    --box-shadow-color: var(--tblack);
+  }
+
+  .box-shadow-twhite {
+    --box-shadow-color: var(--twhite);
+  }
+
+  .box-shadow-opacity-100 {
+    --box-shadow-color-final: var(--box-shadow-color, var(--tblack));
+  }
+
+  .box-shadow-opacity-50 {
+    --box-shadow-color-final: color-mix(in oklab, var(--box-shadow-color, var(--tblack)) 50%, transparent);
+  }
+
+  .inner-shadow-pixel {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .inner-shadow-pixel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: var(--inner-shadow-effect, inset var(--inner-shadow-x, 10px) var(--inner-shadow-y, 10px) 0 var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
+    clip-path: inherit;
+    pointer-events: none;
+  }
+
+  .rounded-pixel-lg.inner-shadow-pixel::before {
+    clip-path: polygon(2px 18px,
+      4px 18px,
+      4px 16px,
+      4px 12px,
+      6px 12px,
+      6px 10px,
+      8px 10px,
+      8px 8px,
+      10px 8px,
+      10px 6px,
+      12px 6px,
+      12px 4px,
+      16px 4px,
+      18px 4px,
+      18px 2px,
+      calc(100% - 18px) 2px,
+      calc(100% - 18px) 4px,
+      calc(100% - 16px) 4px,
+      calc(100% - 12px) 4px,
+      calc(100% - 12px) 6px,
+      calc(100% - 10px) 6px,
+      calc(100% - 10px) 8px,
+      calc(100% - 8px) 8px,
+      calc(100% - 8px) 10px,
+      calc(100% - 6px) 10px,
+      calc(100% - 6px) 12px,
+      calc(100% - 4px) 12px,
+      calc(100% - 4px) 16px,
+      calc(100% - 4px) 18px,
+      calc(100% - 2px) 18px,
+      calc(100% - 2px) calc(100% - 18px),
+      calc(100% - 4px) calc(100% - 18px),
+      calc(100% - 4px) calc(100% - 16px),
+      calc(100% - 4px) calc(100% - 12px),
+      calc(100% - 6px) calc(100% - 12px),
+      calc(100% - 6px) calc(100% - 10px),
+      calc(100% - 8px) calc(100% - 10px),
+      calc(100% - 8px) calc(100% - 8px),
+      calc(100% - 10px) calc(100% - 8px),
+      calc(100% - 10px) calc(100% - 6px),
+      calc(100% - 12px) calc(100% - 6px),
+      calc(100% - 12px) calc(100% - 4px),
+      calc(100% - 16px) calc(100% - 4px),
+      calc(100% - 18px) calc(100% - 4px),
+      calc(100% - 18px) calc(100% - 2px),
+      18px calc(100% - 2px),
+      18px calc(100% - 4px),
+      16px calc(100% - 4px),
+      12px calc(100% - 4px),
+      12px calc(100% - 6px),
+      10px calc(100% - 6px),
+      10px calc(100% - 8px),
+      8px calc(100% - 8px),
+      8px calc(100% - 10px),
+      6px calc(100% - 10px),
+      6px calc(100% - 12px),
+      4px calc(100% - 12px),
+      4px calc(100% - 16px),
+      4px calc(100% - 18px),
+      2px calc(100% - 18px));
+  }
+
+  .inner-shadow-pixel-10 {
+    --inner-shadow-x: 10px;
+    --inner-shadow-y: 10px;
+  }
+
+  .inner-shadow-pixel-5 {
+    --inner-shadow-x: 5px;
+    --inner-shadow-y: 5px;
+  }
+
+  .inner-shadow-pixel-neg-10 {
+    --inner-shadow-x: -10px;
+    --inner-shadow-y: -10px;
+  }
+
+  .inner-shadow-pixel-neg-5 {
+    --inner-shadow-x: -5px;
+    --inner-shadow-y: -5px;
+  }
+
+  .inner-shadow-pixel-both-10 {
+    --inner-shadow-effect: inset 10px 10px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack)))), inset -10px -10px 0 var(--inner-shadow-neg-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
+  }
+
+  .inner-shadow-pixel-both-5 {
+    --inner-shadow-effect: inset 5px 5px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack)))), inset -5px -5px 0 var(--inner-shadow-neg-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
+  }
+
+  .inner-shadow-black {
+    --inner-shadow-color: #000000;
+  }
+
+  .inner-shadow-yellow {
+    --inner-shadow-color: var(--yellow);
+  }
+
+  .inner-shadow-light-yellow {
+    --inner-shadow-color: var(--light-yellow);
+  }
+
+  .inner-shadow-lighter-yellow {
+    --inner-shadow-color: var(--lighter-yellow);
+  }
+
+  .inner-shadow-lightest-yellow {
+    --inner-shadow-color: var(--lightest-yellow);
+  }
+
+  .inner-shadow-kinda-yellow {
+    --inner-shadow-color: var(--kinda-yellow);
+  }
+
+  .inner-shadow-dark-yellow {
+    --inner-shadow-color: var(--dark-yellow);
+  }
+
+  .inner-shadow-blue {
+    --inner-shadow-color: var(--blue);
+  }
+
+  .inner-shadow-light-blue {
+    --inner-shadow-color: var(--light-blue);
+  }
+
+  .inner-shadow-dark-blue {
+    --inner-shadow-color: var(--dark-blue);
+  }
+
+  .inner-shadow-bgblue {
+    --inner-shadow-color: var(--bgblue);
+  }
+
+  .inner-shadow-red {
+    --inner-shadow-color: var(--red);
+  }
+
+  .inner-shadow-light-red {
+    --inner-shadow-color: var(--light-red);
+  }
+
+  .inner-shadow-bright-red {
+    --inner-shadow-color: var(--bright-red);
+  }
+
+  .inner-shadow-tblack {
+    --inner-shadow-color: var(--tblack);
+  }
+
+  .inner-shadow-twhite {
+    --inner-shadow-color: var(--twhite);
+  }
+
+  .inner-shadow-pos-black { --inner-shadow-pos-color: #000000; }
+  .inner-shadow-pos-yellow { --inner-shadow-pos-color: var(--yellow); }
+  .inner-shadow-pos-light-yellow { --inner-shadow-pos-color: var(--light-yellow); }
+  .inner-shadow-pos-lighter-yellow { --inner-shadow-pos-color: var(--lighter-yellow); }
+  .inner-shadow-pos-lightest-yellow { --inner-shadow-pos-color: var(--lightest-yellow); }
+  .inner-shadow-pos-kinda-yellow { --inner-shadow-pos-color: var(--kinda-yellow); }
+  .inner-shadow-pos-dark-yellow { --inner-shadow-pos-color: var(--dark-yellow); }
+  .inner-shadow-pos-blue { --inner-shadow-pos-color: var(--blue); }
+  .inner-shadow-pos-light-blue { --inner-shadow-pos-color: var(--light-blue); }
+  .inner-shadow-pos-dark-blue { --inner-shadow-pos-color: var(--dark-blue); }
+  .inner-shadow-pos-bgblue { --inner-shadow-pos-color: var(--bgblue); }
+  .inner-shadow-pos-red { --inner-shadow-pos-color: var(--red); }
+  .inner-shadow-pos-light-red { --inner-shadow-pos-color: var(--light-red); }
+  .inner-shadow-pos-bright-red { --inner-shadow-pos-color: var(--bright-red); }
+  .inner-shadow-pos-tblack { --inner-shadow-pos-color: var(--tblack); }
+  .inner-shadow-pos-twhite { --inner-shadow-pos-color: var(--twhite); }
+
+  .inner-shadow-neg-black { --inner-shadow-neg-color: #000000; }
+  .inner-shadow-neg-yellow { --inner-shadow-neg-color: var(--yellow); }
+  .inner-shadow-neg-light-yellow { --inner-shadow-neg-color: var(--light-yellow); }
+  .inner-shadow-neg-lighter-yellow { --inner-shadow-neg-color: var(--lighter-yellow); }
+  .inner-shadow-neg-lightest-yellow { --inner-shadow-neg-color: var(--lightest-yellow); }
+  .inner-shadow-neg-kinda-yellow { --inner-shadow-neg-color: var(--kinda-yellow); }
+  .inner-shadow-neg-dark-yellow { --inner-shadow-neg-color: var(--dark-yellow); }
+  .inner-shadow-neg-blue { --inner-shadow-neg-color: var(--blue); }
+  .inner-shadow-neg-light-blue { --inner-shadow-neg-color: var(--light-blue); }
+  .inner-shadow-neg-dark-blue { --inner-shadow-neg-color: var(--dark-blue); }
+  .inner-shadow-neg-bgblue { --inner-shadow-neg-color: var(--bgblue); }
+  .inner-shadow-neg-red { --inner-shadow-neg-color: var(--red); }
+  .inner-shadow-neg-light-red { --inner-shadow-neg-color: var(--light-red); }
+  .inner-shadow-neg-bright-red { --inner-shadow-neg-color: var(--bright-red); }
+  .inner-shadow-neg-tblack { --inner-shadow-neg-color: var(--tblack); }
+  .inner-shadow-neg-twhite { --inner-shadow-neg-color: var(--twhite); }
+
+  .inner-shadow-opacity-100 {
+    --inner-shadow-color-final: var(--inner-shadow-color, var(--tblack));
+  }
+
+  .inner-shadow-opacity-50 {
+    --inner-shadow-color-final: color-mix(in oklab, var(--inner-shadow-color, var(--tblack)) 50%, transparent);
+  }
+
+  .inner-shadow-pos-opacity-100 {
+    --inner-shadow-pos-color-final: var(--inner-shadow-pos-color, var(--inner-shadow-color, var(--tblack)));
+  }
+
+  .inner-shadow-pos-opacity-50 {
+    --inner-shadow-pos-color-final: color-mix(in oklab, var(--inner-shadow-pos-color, var(--inner-shadow-color, var(--tblack))) 50%, transparent);
+  }
+
+  .inner-shadow-neg-opacity-100 {
+    --inner-shadow-neg-color-final: var(--inner-shadow-neg-color, var(--inner-shadow-color, var(--tblack)));
+  }
+
+  .inner-shadow-neg-opacity-50 {
+    --inner-shadow-neg-color-final: color-mix(in oklab, var(--inner-shadow-neg-color, var(--inner-shadow-color, var(--tblack))) 50%, transparent);
+  }
+
+  .inner-shadow-neg-opacity-25 {
+    --inner-shadow-neg-color-final: color-mix(in oklab, var(--inner-shadow-neg-color, var(--inner-shadow-color, var(--tblack))) 25%, transparent);
+  }
+
+  .underline-dots {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--underline-dots-color, currentColor);
+    text-decoration-skip-ink: none;
+  }
+
+  .underline-dots-black { --underline-dots-color: var(--tblack); }
+  .underline-dots-yellow { --underline-dots-color: var(--yellow); }
+  .underline-dots-light-yellow { --underline-dots-color: var(--light-yellow); }
+  .underline-dots-lighter-yellow { --underline-dots-color: var(--lighter-yellow); }
+  .underline-dots-lightest-yellow { --underline-dots-color: var(--lightest-yellow); }
+  .underline-dots-kinda-yellow { --underline-dots-color: var(--kinda-yellow); }
+  .underline-dots-dark-yellow { --underline-dots-color: var(--dark-yellow); }
+  .underline-dots-blue { --underline-dots-color: var(--blue); }
+  .underline-dots-light-blue { --underline-dots-color: var(--light-blue); }
+  .underline-dots-dark-blue { --underline-dots-color: var(--dark-blue); }
+  .underline-dots-bgblue { --underline-dots-color: var(--bgblue); }
+  .underline-dots-red { --underline-dots-color: var(--red); }
+  .underline-dots-light-red { --underline-dots-color: var(--light-red); }
+  .underline-dots-bright-red { --underline-dots-color: var(--bright-red); }
+  .underline-dots-tblack { --underline-dots-color: var(--tblack); }
+  .underline-dots-twhite { --underline-dots-color: var(--twhite); }
+
 }

@@ -6,14 +6,22 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { Toaster } from "~/components/ui/sonner";
+import { TooltipProvider } from "~/components/ui/tooltip";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Shaney Zoya Fiandi | Information Systems Student & Software Engineer Portfolio' },
-    { name: 'Shaney Zoya Fiandi', content: 'Information Systems student and Software Engineer' },
+    {
+      title:
+        "Shaney Zoya Fiandi | Information Systems Student & Software Engineer Portfolio",
+    },
+    {
+      name: "Shaney Zoya Fiandi",
+      content: "Information Systems student and Software Engineer",
+    },
   ];
 }
 
@@ -40,7 +48,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
+        <Toaster />
         <ScrollRestoration />
         <Scripts />
       </body>
