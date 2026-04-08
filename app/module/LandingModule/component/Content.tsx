@@ -8,7 +8,7 @@ export function Content() {
         <NavButton label="Experiences" />
         <NavButton label="Projects" />
         <NavButton label="Night/Light" variant="red" />
-        <NavButton label="..." size="retracted" />
+        <NavButton label="..." size="small" />
       </div>
     </div>
   );
