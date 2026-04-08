@@ -229,7 +229,21 @@ body {
 }
 
 .rounded-pixel-lg::after,
-.rounded-pixel-lg--wrapper::after {
+.rounded-pixel-lg--wrapper::after,
+.rounded-pixel-lg-r::after,
+.round-pixel-lg-r::after,
+.rounded-pixel-lg-b::after,
+.round-pixel-lg-b::after,
+.rounded-pixel-lg-l::after,
+.round-pixel-lg-l::after,
+.rounded-pixel-lg-t-l::after,
+.round-pixel-lg-t-l::after,
+.rounded-pixel-lg-t-r::after,
+.round-pixel-lg-t-r::after,
+.rounded-pixel-lg-b-r::after,
+.round-pixel-lg-b-r::after,
+.rounded-pixel-lg-b-l::after,
+.round-pixel-lg-b-l::after {
   content: "";
   position: absolute;
   clip-path: polygon(0px calc(100% - 18px),
@@ -369,8 +383,364 @@ body {
   pointer-events: none;
 }
 
-.rounded-pixel-lg::after {
+.rounded-pixel-lg::after,
+.rounded-pixel-lg-r::after,
+.round-pixel-lg-r::after,
+.rounded-pixel-lg-b::after,
+.round-pixel-lg-b::after,
+.rounded-pixel-lg-l::after,
+.round-pixel-lg-l::after,
+.rounded-pixel-lg-t-l::after,
+.round-pixel-lg-t-l::after,
+.rounded-pixel-lg-t-r::after,
+.round-pixel-lg-t-r::after,
+.rounded-pixel-lg-b-r::after,
+.round-pixel-lg-b-r::after,
+.rounded-pixel-lg-b-l::after,
+.round-pixel-lg-b-l::after {
   margin: -2px;
+}
+
+/* Directional pixel radius variants for lg shape */
+.rounded-pixel-lg-t,
+.round-pixel-lg-t {
+  clip-path: polygon(0px 100%,
+    100% 100%,
+    100% 18px,
+    calc(100% - 2px) 18px,
+    calc(100% - 2px) 16px,
+    calc(100% - 2px) 12px,
+    calc(100% - 4px) 12px,
+    calc(100% - 4px) 10px,
+    calc(100% - 6px) 10px,
+    calc(100% - 6px) 8px,
+    calc(100% - 8px) 6px,
+    calc(100% - 10px) 6px,
+    calc(100% - 10px) 4px,
+    calc(100% - 12px) 4px,
+    calc(100% - 12px) 2px,
+    calc(100% - 16px) 2px,
+    calc(100% - 18px) 2px,
+    calc(100% - 18px) 0px,
+    18px 0px,
+    18px 2px,
+    16px 2px,
+    12px 2px,
+    12px 4px,
+    10px 4px,
+    10px 6px,
+    8px 6px,
+    6px 8px,
+    6px 10px,
+    4px 10px,
+    4px 12px,
+    2px 12px,
+    2px 16px,
+    2px 18px,
+    0px 18px);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-r,
+.round-pixel-lg-r {
+  clip-path: polygon(0px 0px,
+    calc(100% - 18px) 0px,
+    calc(100% - 18px) 2px,
+    calc(100% - 16px) 2px,
+    calc(100% - 12px) 2px,
+    calc(100% - 12px) 4px,
+    calc(100% - 10px) 4px,
+    calc(100% - 10px) 6px,
+    calc(100% - 8px) 6px,
+    calc(100% - 6px) 8px,
+    calc(100% - 6px) 10px,
+    calc(100% - 4px) 10px,
+    calc(100% - 4px) 12px,
+    calc(100% - 2px) 12px,
+    calc(100% - 2px) 16px,
+    calc(100% - 2px) 18px,
+    100% 18px,
+    100% calc(100% - 18px),
+    calc(100% - 2px) calc(100% - 18px),
+    calc(100% - 2px) calc(100% - 16px),
+    calc(100% - 2px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 10px),
+    calc(100% - 6px) calc(100% - 10px),
+    calc(100% - 6px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 2px),
+    calc(100% - 16px) calc(100% - 2px),
+    calc(100% - 18px) calc(100% - 2px),
+    calc(100% - 18px) 100%,
+    0px 100%);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-b,
+.round-pixel-lg-b {
+  clip-path: polygon(0px 0px,
+    100% 0px,
+    100% calc(100% - 18px),
+    calc(100% - 2px) calc(100% - 18px),
+    calc(100% - 2px) calc(100% - 16px),
+    calc(100% - 2px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 10px),
+    calc(100% - 6px) calc(100% - 10px),
+    calc(100% - 6px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 2px),
+    calc(100% - 16px) calc(100% - 2px),
+    calc(100% - 18px) calc(100% - 2px),
+    calc(100% - 18px) 100%,
+    18px 100%,
+    18px calc(100% - 2px),
+    16px calc(100% - 2px),
+    12px calc(100% - 2px),
+    12px calc(100% - 4px),
+    10px calc(100% - 4px),
+    10px calc(100% - 6px),
+    8px calc(100% - 6px),
+    6px calc(100% - 8px),
+    6px calc(100% - 10px),
+    4px calc(100% - 10px),
+    4px calc(100% - 12px),
+    2px calc(100% - 12px),
+    2px calc(100% - 16px),
+    2px calc(100% - 18px),
+    0px calc(100% - 18px));
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-l,
+.round-pixel-lg-l {
+  clip-path: polygon(18px 0px,
+    100% 0px,
+    100% 100%,
+    18px 100%,
+    18px calc(100% - 2px),
+    16px calc(100% - 2px),
+    12px calc(100% - 2px),
+    12px calc(100% - 4px),
+    10px calc(100% - 4px),
+    10px calc(100% - 6px),
+    8px calc(100% - 6px),
+    6px calc(100% - 8px),
+    6px calc(100% - 10px),
+    4px calc(100% - 10px),
+    4px calc(100% - 12px),
+    2px calc(100% - 12px),
+    2px calc(100% - 16px),
+    2px calc(100% - 18px),
+    0px calc(100% - 18px),
+    0px 18px,
+    2px 18px,
+    2px 16px,
+    2px 12px,
+    4px 12px,
+    4px 10px,
+    6px 10px,
+    6px 8px,
+    8px 6px,
+    10px 6px,
+    10px 4px,
+    12px 4px,
+    12px 2px,
+    16px 2px,
+    18px 2px);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-t-l,
+.round-pixel-lg-t-l {
+  clip-path: polygon(18px 0px,
+    100% 0px,
+    100% 100%,
+    0px 100%,
+    0px 18px,
+    2px 18px,
+    2px 16px,
+    2px 12px,
+    4px 12px,
+    4px 10px,
+    6px 10px,
+    6px 8px,
+    8px 6px,
+    10px 6px,
+    10px 4px,
+    12px 4px,
+    12px 2px,
+    16px 2px,
+    18px 2px);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-t-r,
+.round-pixel-lg-t-r {
+  clip-path: polygon(0px 0px,
+    calc(100% - 18px) 0px,
+    calc(100% - 18px) 2px,
+    calc(100% - 16px) 2px,
+    calc(100% - 12px) 2px,
+    calc(100% - 12px) 4px,
+    calc(100% - 10px) 4px,
+    calc(100% - 10px) 6px,
+    calc(100% - 8px) 6px,
+    calc(100% - 6px) 8px,
+    calc(100% - 6px) 10px,
+    calc(100% - 4px) 10px,
+    calc(100% - 4px) 12px,
+    calc(100% - 2px) 12px,
+    calc(100% - 2px) 16px,
+    calc(100% - 2px) 18px,
+    100% 18px,
+    100% 100%,
+    0px 100%);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-b-r,
+.round-pixel-lg-b-r {
+  clip-path: polygon(0px 0px,
+    100% 0px,
+    100% calc(100% - 18px),
+    calc(100% - 2px) calc(100% - 18px),
+    calc(100% - 2px) calc(100% - 16px),
+    calc(100% - 2px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 10px),
+    calc(100% - 6px) calc(100% - 10px),
+    calc(100% - 6px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 6px),
+    calc(100% - 10px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 2px),
+    calc(100% - 16px) calc(100% - 2px),
+    calc(100% - 18px) calc(100% - 2px),
+    calc(100% - 18px) 100%,
+    0px 100%);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-b-l,
+.round-pixel-lg-b-l {
+  clip-path: polygon(0px 0px,
+    100% 0px,
+    100% 100%,
+    18px 100%,
+    18px calc(100% - 2px),
+    16px calc(100% - 2px),
+    12px calc(100% - 2px),
+    12px calc(100% - 4px),
+    10px calc(100% - 4px),
+    10px calc(100% - 6px),
+    8px calc(100% - 6px),
+    6px calc(100% - 8px),
+    6px calc(100% - 10px),
+    4px calc(100% - 10px),
+    4px calc(100% - 12px),
+    2px calc(100% - 12px),
+    2px calc(100% - 16px),
+    2px calc(100% - 18px),
+    0px calc(100% - 18px));
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.rounded-pixel-lg-t::after,
+.round-pixel-lg-t::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--tblack);
+  display: block;
+  clip-path: polygon(0px 100%,
+    100% 100%,
+    100% 18px,
+    calc(100% - 2px) 18px,
+    calc(100% - 2px) 16px,
+    calc(100% - 2px) 12px,
+    calc(100% - 4px) 12px,
+    calc(100% - 4px) 10px,
+    calc(100% - 6px) 10px,
+    calc(100% - 6px) 8px,
+    calc(100% - 8px) 6px,
+    calc(100% - 10px) 6px,
+    calc(100% - 10px) 4px,
+    calc(100% - 12px) 4px,
+    calc(100% - 12px) 2px,
+    calc(100% - 16px) 2px,
+    calc(100% - 18px) 2px,
+    calc(100% - 18px) 0px,
+    18px 0px,
+    18px 2px,
+    16px 2px,
+    12px 2px,
+    12px 4px,
+    10px 4px,
+    10px 6px,
+    8px 6px,
+    6px 8px,
+    6px 10px,
+    4px 10px,
+    4px 12px,
+    2px 12px,
+    2px 16px,
+    2px 18px,
+    0px 18px,
+    0px 100%,
+    2px calc(100% - 2px),
+    2px 18px,
+    4px 18px,
+    4px 16px,
+    4px 12px,
+    6px 12px,
+    6px 10px,
+    8px 10px,
+    8px 8px,
+    10px 8px,
+    10px 6px,
+    12px 6px,
+    12px 4px,
+    16px 4px,
+    18px 4px,
+    18px 2px,
+    calc(100% - 18px) 2px,
+    calc(100% - 18px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 12px) 4px,
+    calc(100% - 12px) 6px,
+    calc(100% - 10px) 6px,
+    calc(100% - 10px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 10px,
+    calc(100% - 6px) 10px,
+    calc(100% - 6px) 12px,
+    calc(100% - 4px) 12px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 18px,
+    calc(100% - 2px) 18px,
+    calc(100% - 2px) calc(100% - 2px),
+    2px calc(100% - 2px));
+  pointer-events: none;
 }
 
 .rounded-pixel-xl,
