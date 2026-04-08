@@ -30,29 +30,71 @@ export function LandingModule() {
                 Contact Me!
               </div>
               <div className="grid grid-cols-3 gap-x-3 gap-y-2.5 justify-center items-center">
-                <Link to="https://github.com/szoyaf" target="_blank">
-                  <img src="/icons/github.svg" alt="github" />
+                <Link
+                  to="https://github.com/szoyaf"
+                  target="_blank"
+                  className="contact-icon-link"
+                >
+                  <img
+                    src="/icons/github.svg"
+                    alt="github"
+                    className="contact-icon"
+                  />
                 </Link>
-                <Link to="https://linkedin.com/in/shaneyzoya" target="_blank">
-                  <img src="/icons/linkedin.svg" alt="linkedin" />
+                <Link
+                  to="https://linkedin.com/in/shaneyzoya"
+                  target="_blank"
+                  className="contact-icon-link"
+                >
+                  <img
+                    src="/icons/linkedin.svg"
+                    alt="linkedin"
+                    className="contact-icon"
+                  />
                 </Link>
                 <Link
                   to="https://mail.google.com/mail/u/0/?fs=1&to=shaneyzoyaf@gmail.com&tf=cm"
                   target="_blank"
+                  className="contact-icon-link"
                 >
-                  <img src="/icons/email.svg" alt="email" />
+                  <img
+                    src="/icons/email.svg"
+                    alt="email"
+                    className="contact-icon"
+                  />
                 </Link>
                 <Link
                   to="https://discordapp.com/users/789456123"
                   target="_blank"
+                  className="contact-icon-link"
                 >
-                  <img src="/icons/discord.svg" alt="discord" />
+                  <img
+                    src="/icons/discord.svg"
+                    alt="discord"
+                    className="contact-icon"
+                  />
                 </Link>
-                <Link to="https://twitter.com/shaneyfiandi" target="_blank">
-                  <img src="/icons/twitter.svg" alt="twitter" />
+                <Link
+                  to="https://twitter.com/shaneyfiandi"
+                  target="_blank"
+                  className="contact-icon-link"
+                >
+                  <img
+                    src="/icons/twitter.svg"
+                    alt="twitter"
+                    className="contact-icon"
+                  />
                 </Link>
-                <Link to="https://instagram.com/szoyaf" target="_blank">
-                  <img src="/icons/insta.svg" alt="insta" />
+                <Link
+                  to="https://instagram.com/szoyaf"
+                  target="_blank"
+                  className="contact-icon-link"
+                >
+                  <img
+                    src="/icons/insta.svg"
+                    alt="insta"
+                    className="contact-icon"
+                  />
                 </Link>
               </div>
             </Card>
@@ -76,7 +118,7 @@ export function LandingModule() {
                 <span className="flex items-center gap-2.5">
                   <img src="/icons/Chat.svg" alt="chat" />
                   <span className="message-toggle-underline text-twhite text-left text-h5 md:text-h6 lg:text-h5 underline-dots underline-dots-light-blue">
-                      Send me a Message
+                    Send me a Message
                   </span>
                 </span>
                 <img
