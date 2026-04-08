@@ -159,6 +159,567 @@ body {
   border: 2px solid transparent;
 }
 
+.pixel-corners-sm,
+.pixel-corners-sm--wrapper,
+.rounded-pixel-sm,
+.rounded-pixel-sm--wrapper,
+.round-pixel-sm,
+.round-pixel-sm--wrapper {
+  clip-path: polygon(0px calc(100% - 10px),
+    2px calc(100% - 10px),
+    2px calc(100% - 8px),
+    2px calc(100% - 6px),
+    4px calc(100% - 6px),
+    4px calc(100% - 4px),
+    6px calc(100% - 4px),
+    6px calc(100% - 2px),
+    8px calc(100% - 2px),
+    10px calc(100% - 2px),
+    10px 100%,
+    calc(100% - 10px) 100%,
+    calc(100% - 10px) calc(100% - 2px),
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 6px) calc(100% - 2px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 2px) calc(100% - 6px),
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 2px) calc(100% - 10px),
+    100% calc(100% - 10px),
+    100% 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 0px,
+    10px 0px,
+    10px 2px,
+    8px 2px,
+    6px 2px,
+    6px 4px,
+    4px 4px,
+    4px 6px,
+    2px 6px,
+    2px 8px,
+    0px 10px);
+  position: relative;
+}
+
+.pixel-corners-sm,
+.rounded-pixel-sm,
+.round-pixel-sm {
+  border: 2px solid transparent;
+}
+
+.pixel-corners-sm--wrapper,
+.rounded-pixel-sm--wrapper,
+.round-pixel-sm--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+
+.pixel-corners-sm--wrapper .pixel-corners-sm,
+.rounded-pixel-sm--wrapper .rounded-pixel-sm,
+.round-pixel-sm--wrapper .round-pixel-sm {
+  display: block;
+  clip-path: polygon(2px 10px,
+    4px 10px,
+    4px 8px,
+    4px 6px,
+    6px 6px,
+    6px 4px,
+    8px 4px,
+    10px 4px,
+    10px 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) calc(100% - 10px),
+    calc(100% - 4px) calc(100% - 10px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 10px) calc(100% - 4px),
+    calc(100% - 10px) calc(100% - 2px),
+    10px calc(100% - 2px),
+    10px calc(100% - 4px),
+    8px calc(100% - 4px),
+    6px calc(100% - 4px),
+    6px calc(100% - 6px),
+    4px calc(100% - 6px),
+    4px calc(100% - 8px),
+    4px calc(100% - 10px),
+    2px calc(100% - 10px));
+}
+
+.pixel-corners-sm::after,
+.pixel-corners-sm--wrapper::after,
+.rounded-pixel-sm::after,
+.rounded-pixel-sm--wrapper::after,
+.round-pixel-sm::after,
+.round-pixel-sm--wrapper::after,
+.pixel-corners-sm-r::after,
+.pixel-corners-sm-b::after,
+.pixel-corners-sm-l::after,
+.pixel-corners-sm-t-l::after,
+.pixel-corners-sm-t-r::after,
+.pixel-corners-sm-b-r::after,
+.pixel-corners-sm-b-l::after,
+.rounded-pixel-sm-r::after,
+.rounded-pixel-sm-b::after,
+.rounded-pixel-sm-l::after,
+.rounded-pixel-sm-t-l::after,
+.rounded-pixel-sm-t-r::after,
+.rounded-pixel-sm-b-r::after,
+.rounded-pixel-sm-b-l::after,
+.round-pixel-sm-r::after,
+.round-pixel-sm-b::after,
+.round-pixel-sm-l::after,
+.round-pixel-sm-t-l::after,
+.round-pixel-sm-t-r::after,
+.round-pixel-sm-b-r::after,
+.round-pixel-sm-b-l::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 10px),
+    2px calc(100% - 10px),
+    2px calc(100% - 8px),
+    2px calc(100% - 6px),
+    4px calc(100% - 6px),
+    4px calc(100% - 4px),
+    6px calc(100% - 4px),
+    6px calc(100% - 2px),
+    8px calc(100% - 2px),
+    10px calc(100% - 2px),
+    10px 100%,
+    calc(100% - 10px) 100%,
+    calc(100% - 10px) calc(100% - 2px),
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 6px) calc(100% - 2px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 2px) calc(100% - 6px),
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 2px) calc(100% - 10px),
+    100% calc(100% - 10px),
+    100% 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 0px,
+    10px 0px,
+    10px 2px,
+    8px 2px,
+    6px 2px,
+    6px 4px,
+    4px 4px,
+    4px 6px,
+    2px 6px,
+    2px 8px,
+    0px 10px,
+    0px 50%,
+    2px 50%,
+    2px 10px,
+    4px 10px,
+    4px 8px,
+    4px 6px,
+    6px 6px,
+    6px 4px,
+    8px 4px,
+    10px 4px,
+    10px 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) calc(100% - 10px),
+    calc(100% - 4px) calc(100% - 10px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 10px) calc(100% - 4px),
+    calc(100% - 10px) calc(100% - 2px),
+    10px calc(100% - 2px),
+    10px calc(100% - 4px),
+    8px calc(100% - 4px),
+    6px calc(100% - 4px),
+    6px calc(100% - 6px),
+    4px calc(100% - 6px),
+    4px calc(100% - 8px),
+    4px calc(100% - 10px),
+    2px calc(100% - 10px));
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000;
+  display: block;
+  pointer-events: none;
+}
+
+.pixel-corners-sm::after,
+.rounded-pixel-sm::after,
+.round-pixel-sm::after {
+  margin: -2px;
+}
+
+.pixel-corners-sm-t,
+.pixel-corners-sm-t-l,
+.pixel-corners-sm-t-r,
+.rounded-pixel-sm-t,
+.rounded-pixel-sm-t-l,
+.rounded-pixel-sm-t-r,
+.round-pixel-sm-t,
+.round-pixel-sm-t-l,
+.round-pixel-sm-t-r {
+  position: relative;
+}
+
+.pixel-corners-sm-t,
+.pixel-corners-sm-t--wrapper,
+.rounded-pixel-sm-t,
+.rounded-pixel-sm-t--wrapper,
+.round-pixel-sm-t,
+.round-pixel-sm-t--wrapper {
+  clip-path: polygon(0px 100%,
+    100% 100%,
+    100% 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 0px,
+    10px 0px,
+    10px 2px,
+    8px 2px,
+    6px 2px,
+    6px 4px,
+    4px 4px,
+    4px 6px,
+    2px 6px,
+    2px 8px,
+    0px 10px);
+}
+
+.pixel-corners-sm-r,
+.pixel-corners-sm-r--wrapper,
+.rounded-pixel-sm-r,
+.rounded-pixel-sm-r--wrapper,
+.round-pixel-sm-r,
+.round-pixel-sm-r--wrapper {
+  clip-path: polygon(0px 0px,
+    calc(100% - 10px) 0px,
+    calc(100% - 10px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 6px) 2px,
+    calc(100% - 6px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 6px,
+    calc(100% - 2px) 6px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 10px,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 2px) calc(100% - 10px),
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 2px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 6px) calc(100% - 2px),
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 10px) calc(100% - 2px),
+    calc(100% - 10px) 100%,
+    0px 100%);
+}
+
+.pixel-corners-sm-b,
+.pixel-corners-sm-b--wrapper,
+.rounded-pixel-sm-b,
+.rounded-pixel-sm-b--wrapper,
+.round-pixel-sm-b,
+.round-pixel-sm-b--wrapper {
+  clip-path: polygon(0px 0px,
+    100% 0px,
+    100% calc(100% - 10px),
+    calc(100% - 2px) calc(100% - 10px),
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 2px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 6px) calc(100% - 2px),
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 10px) calc(100% - 2px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    10px calc(100% - 2px),
+    8px calc(100% - 2px),
+    6px calc(100% - 2px),
+    6px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 6px),
+    2px calc(100% - 6px),
+    2px calc(100% - 8px),
+    0px calc(100% - 10px));
+}
+
+.pixel-corners-sm-l,
+.pixel-corners-sm-l--wrapper,
+.rounded-pixel-sm-l,
+.rounded-pixel-sm-l--wrapper,
+.round-pixel-sm-l,
+.round-pixel-sm-l--wrapper {
+  clip-path: polygon(10px 0px,
+    100% 0px,
+    100% 100%,
+    10px 100%,
+    10px calc(100% - 2px),
+    8px calc(100% - 2px),
+    6px calc(100% - 2px),
+    6px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 6px),
+    2px calc(100% - 6px),
+    2px calc(100% - 8px),
+    0px calc(100% - 10px),
+    0px 10px,
+    2px 10px,
+    2px 8px,
+    2px 6px,
+    4px 6px,
+    4px 4px,
+    6px 4px,
+    6px 2px,
+    8px 2px,
+    10px 2px);
+}
+
+.pixel-corners-sm-t-l,
+.pixel-corners-sm-t-l--wrapper,
+.rounded-pixel-sm-t-l,
+.rounded-pixel-sm-t-l--wrapper,
+.round-pixel-sm-t-l,
+.round-pixel-sm-t-l--wrapper {
+  clip-path: polygon(10px 0px,
+    100% 0px,
+    100% 100%,
+    0px 100%,
+    0px 10px,
+    2px 10px,
+    2px 8px,
+    2px 6px,
+    4px 6px,
+    4px 4px,
+    6px 4px,
+    6px 2px,
+    8px 2px,
+    10px 2px);
+}
+
+.pixel-corners-sm-t-r,
+.pixel-corners-sm-t-r--wrapper,
+.rounded-pixel-sm-t-r,
+.rounded-pixel-sm-t-r--wrapper,
+.round-pixel-sm-t-r,
+.round-pixel-sm-t-r--wrapper {
+  clip-path: polygon(0px 0px,
+    calc(100% - 10px) 0px,
+    calc(100% - 10px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 6px) 2px,
+    calc(100% - 6px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 6px,
+    calc(100% - 2px) 6px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 10px,
+    100% 10px,
+    100% 100%,
+    0px 100%);
+}
+
+.pixel-corners-sm-b-r,
+.pixel-corners-sm-b-r--wrapper,
+.rounded-pixel-sm-b-r,
+.rounded-pixel-sm-b-r--wrapper,
+.round-pixel-sm-b-r,
+.round-pixel-sm-b-r--wrapper {
+  clip-path: polygon(0px 0px,
+    100% 0px,
+    100% calc(100% - 10px),
+    calc(100% - 2px) calc(100% - 10px),
+    calc(100% - 2px) calc(100% - 8px),
+    calc(100% - 2px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 6px) calc(100% - 4px),
+    calc(100% - 6px) calc(100% - 2px),
+    calc(100% - 8px) calc(100% - 2px),
+    calc(100% - 10px) calc(100% - 2px),
+    calc(100% - 10px) 100%,
+    0px 100%);
+}
+
+.pixel-corners-sm-b-l,
+.pixel-corners-sm-b-l--wrapper,
+.rounded-pixel-sm-b-l,
+.rounded-pixel-sm-b-l--wrapper,
+.round-pixel-sm-b-l,
+.round-pixel-sm-b-l--wrapper {
+  clip-path: polygon(0px 0px,
+    100% 0px,
+    100% 100%,
+    10px 100%,
+    10px calc(100% - 2px),
+    8px calc(100% - 2px),
+    6px calc(100% - 2px),
+    6px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 6px),
+    2px calc(100% - 6px),
+    2px calc(100% - 8px),
+    0px calc(100% - 10px));
+}
+
+.pixel-corners-sm-t::after,
+.pixel-corners-sm-r::after,
+.pixel-corners-sm-b::after,
+.pixel-corners-sm-l::after,
+.pixel-corners-sm-t-l::after,
+.pixel-corners-sm-t-r::after,
+.pixel-corners-sm-b-r::after,
+.pixel-corners-sm-b-l::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000;
+  display: block;
+  pointer-events: none;
+}
+
+.pixel-corners-sm-t::after,
+.rounded-pixel-sm-t::after,
+.round-pixel-sm-t::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000;
+  display: block;
+  clip-path: polygon(0px 100%,
+    100% 100%,
+    100% 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) 8px,
+    calc(100% - 2px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 2px,
+    calc(100% - 8px) 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 0px,
+    10px 0px,
+    10px 2px,
+    8px 2px,
+    6px 2px,
+    6px 4px,
+    4px 4px,
+    4px 6px,
+    2px 6px,
+    2px 8px,
+    0px 10px,
+    0px 100%,
+    2px calc(100% - 2px),
+    2px 10px,
+    4px 10px,
+    4px 8px,
+    4px 6px,
+    6px 6px,
+    6px 4px,
+    8px 4px,
+    10px 4px,
+    10px 2px,
+    calc(100% - 10px) 2px,
+    calc(100% - 10px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 6px) 4px,
+    calc(100% - 6px) 6px,
+    calc(100% - 4px) 6px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 10px,
+    calc(100% - 2px) 10px,
+    calc(100% - 2px) calc(100% - 2px),
+    2px calc(100% - 2px));
+  pointer-events: none;
+}
+
+.pixel-corners-sm::after,
+.rounded-pixel-sm::after,
+.round-pixel-sm::after,
+.pixel-corners-sm-r::after,
+.pixel-corners-sm-b::after,
+.pixel-corners-sm-l::after,
+.pixel-corners-sm-t-l::after,
+.pixel-corners-sm-t-r::after,
+.pixel-corners-sm-b-r::after,
+.pixel-corners-sm-b-l::after,
+.rounded-pixel-sm-r::after,
+.rounded-pixel-sm-b::after,
+.rounded-pixel-sm-l::after,
+.rounded-pixel-sm-t-l::after,
+.rounded-pixel-sm-t-r::after,
+.rounded-pixel-sm-b-r::after,
+.rounded-pixel-sm-b-l::after,
+.round-pixel-sm-r::after,
+.round-pixel-sm-b::after,
+.round-pixel-sm-l::after,
+.round-pixel-sm-t-l::after,
+.round-pixel-sm-t-r::after,
+.round-pixel-sm-b-r::after,
+.round-pixel-sm-b-l::after {
+  margin: -2px;
+}
+
 .rounded-pixel-lg--wrapper {
   width: fit-content;
   height: fit-content;
@@ -1289,6 +1850,7 @@ body {
 
   --color-red: var(--red);
   --color-light-red: var(--light-red);
+  --color-dark-red: var(--dark-red);
   --color-bright-red: var(--bright-red);
   
   --color-tblack: var(--tblack);
@@ -1343,6 +1905,7 @@ body {
 
   --red: oklch(0.4183 0.095 26.27);
   --light-red: oklch(0.524 0.1127 25.82);
+  --dark-red: oklch(0.3454 0.0745 26.32);
   --bright-red: oklch(0.5112 0.209771 29.2339);
 
   --tblack: oklch(0.1957 0 0);
@@ -2033,8 +2596,16 @@ body {
     --inner-shadow-effect: inset 10px 10px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack)))), inset -10px -10px 0 var(--inner-shadow-neg-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
   }
 
+  .inner-shadow-pixel-both-10-5 {
+    --inner-shadow-effect: inset 10px 10px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack)))), inset -5px -5px 0 var(--inner-shadow-neg-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
+  }
+
   .inner-shadow-pixel-both-5 {
     --inner-shadow-effect: inset 5px 5px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack)))), inset -5px -5px 0 var(--inner-shadow-neg-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
+  }
+
+  .inner-shadow-pixel-both-5-10 {
+    --inner-shadow-effect: inset 5px 5px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack)))), inset -10px -10px 0 var(--inner-shadow-neg-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
   }
 
   .inner-shadow-black {

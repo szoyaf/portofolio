@@ -2,33 +2,43 @@ import { cn } from "~/lib/utils";
 
 type NavButtonVariant = "active" | "default" | "red";
 
+type NavButtonSize = "default" | "small" | "retracted";
+
 type NavButtonProps = {
   label: string;
   variant?: NavButtonVariant;
+  size?: NavButtonSize;
   className?: string;
 };
 
 const baseClasses =
-  "w-fit rounded-pixel-lg-t pb-1.25 pt-2.5 px-9 gap-2.5 text-tblack inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:bg-kinda-yellow hover:inner-shadow-pos-opacity-80 aria-expanded:bg-yellow aria-expanded:text-twhite";
+  "w-fit gap-2.5 text-tblack inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow";
+
+const sizeClasses: Record<NavButtonSize, string> = {
+  default: "rounded-pixel-sm-t pb-1.25 pt-2.5 px-9",
+  small: "rounded-pixel-sm-t pb-1.25 pt-2.5 px-2.5",
+  retracted: "rounded-pixel-sm pb-1.25 pt-2.5 px-2.5",
+};
 
 const variantClasses: Record<NavButtonVariant, string> = {
   active:
     "bg-light-yellow inner-shadow-pos-lighter-yellow inner-shadow-pos-opacity-100",
   default:
-    "bg-dark-yellow inner-shadow-pos-yellow inner-shadow-pos-opacity-100",
-  red: "bg-red inner-shadow-pos-light-red inner-shadow-pos-opacity-100",
+    "bg-dark-yellow inner-shadow-pos-yellow inner-shadow-pos-opacity-100 hover:bg-yellow hover:inner-shadow-pos-lighter-yellow",
+  red: "bg-red inner-shadow-pos-light-red inner-shadow-pos-opacity-100 hover:bg-dark-red hover:inner-shadow-pos-opacity-80",
 };
 
 export function NavButton({
   label,
   variant = "default",
+  size = "default",
   className,
 }: NavButtonProps) {
   return (
     <button
       type="button"
       aria-expanded={variant === "active"}
-      className={cn(baseClasses, variantClasses[variant], className)}
+      className={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
     >
       {label}
     </button>
