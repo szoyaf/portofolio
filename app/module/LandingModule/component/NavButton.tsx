@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cn } from "~/lib/utils";
 
 type NavButtonVariant = "active" | "default" | "red";
@@ -5,7 +6,7 @@ type NavButtonVariant = "active" | "default" | "red";
 type NavButtonSize = "default" | "small" | "retracted";
 
 type NavButtonProps = {
-  label: string;
+  label: ReactNode;
   variant?: NavButtonVariant;
   size?: NavButtonSize;
   className?: string;
@@ -38,7 +39,12 @@ export function NavButton({
     <button
       type="button"
       aria-expanded={variant === "active"}
-      className={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
+      className={cn(
+        baseClasses,
+        variantClasses[variant],
+        sizeClasses[size],
+        className,
+      )}
     >
       {label}
     </button>
