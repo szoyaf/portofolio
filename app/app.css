@@ -3062,6 +3062,10 @@ body {
     --inner-shadow-pos-color-final: color-mix(in oklab, var(--inner-shadow-pos-color, var(--inner-shadow-color, var(--tblack))) 50%, transparent);
   }
 
+  .inner-shadow-pos-opacity-25 {
+    --inner-shadow-pos-color-final: color-mix(in oklab, var(--inner-shadow-pos-color, var(--inner-shadow-color, var(--tblack))) 25%, transparent);
+  }
+
   .inner-shadow-neg-opacity-100 {
     --inner-shadow-neg-color-final: var(--inner-shadow-neg-color, var(--inner-shadow-color, var(--tblack)));
   }

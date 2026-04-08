@@ -13,12 +13,12 @@ type NavButtonProps = {
 };
 
 const baseClasses =
-  "w-fit gap-2.5 text-tblack inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow";
+  "w-fit gap-2.5 text-tblack text-h7 lg:text-h5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow";
 
 const sizeClasses: Record<NavButtonSize, string> = {
-  default: "rounded-pixel-sm-t pb-1.25 pt-2.5 px-9",
-  small: "rounded-pixel-sm-t pb-1.25 pt-2.5 px-2.5",
-  retracted: "rounded-pixel-sm pb-1.25 pt-2.5 px-2.5",
+  default: "rounded-pixel-sm-t pb-1.25 pt-2.5 px-3 lg:px-9",
+  small: "rounded-pixel-sm-t pb-1.75 pt-2.75 px-2.5",
+  retracted: "rounded-pixel-sm pb-1.75 pt-2.75 px-2.5",
 };
 
 const variantClasses: Record<NavButtonVariant, string> = {
