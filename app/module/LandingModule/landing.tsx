@@ -100,24 +100,26 @@ export function LandingModule() {
             </Card>
           </div>
 
-          <Button className="w-full">
-            Download CV <img src="/icons/Download.svg" alt="download" />
-          </Button>
+          <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
+            <Button className="w-full">
+              Download CV <img src="/icons/Download.svg" alt="download" />
+            </Button>
+          </div>
 
           <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
-            <Card className="bg-blue w-full flex flex-col rounded-pixel-lg px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
+            <Card className="message-card bg-blue w-full flex flex-col rounded-pixel-lg px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
               <Button
                 type="button"
                 variant="ghost"
                 size="lg"
-                className="w-full justify-between px-4"
+                className="message-toggle-button w-full justify-between px-4"
                 onClick={() => setIsMessageOpen((current) => !current)}
                 aria-expanded={isMessageOpen}
                 aria-controls="message-form"
               >
                 <span className="flex items-center gap-2.5">
                   <img src="/icons/Chat.svg" alt="chat" />
-                  <span className="message-toggle-underline text-twhite text-left text-h5 md:text-h6 lg:text-h5 underline-dots underline-dots-light-blue">
+                  <span className="text-twhite text-left text-h5 md:text-h6 lg:text-h5 underline-dots underline-dots-light-blue">
                     Send me a Message
                   </span>
                 </span>

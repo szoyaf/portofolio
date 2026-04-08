@@ -1294,6 +1294,16 @@ body {
       -1.5px -1.5px 0 var(--light-yellow);
   }
 
+  .message-card {
+    transition: background-color 200ms ease;
+  }
+
+  .message-card:has(.message-toggle-button:hover),
+  .message-card:has(.message-toggle-button:focus-visible) {
+    background-color: var(--dark-blue);
+    --inner-shadow-pos-color-final: color-mix(in oklab, var(--inner-shadow-pos-color, var(--inner-shadow-color, var(--tblack))) 80%, transparent);
+  }
+
   .text-shadow-layer {
     position: relative;
     display: inline-block;
@@ -1738,6 +1748,14 @@ body {
   .inner-shadow-pos-tblack { --inner-shadow-pos-color: var(--tblack); }
   .inner-shadow-pos-twhite { --inner-shadow-pos-color: var(--twhite); }
 
+  .hover\:inner-shadow-pos-lighter-yellow:hover {
+    --inner-shadow-pos-color: var(--lighter-yellow);
+  }
+
+  .hover\:inner-shadow-pos-lightest-yellow:hover {
+    --inner-shadow-pos-color: var(--lightest-yellow);
+  }
+
   .inner-shadow-neg-black { --inner-shadow-neg-color: #000000; }
   .inner-shadow-neg-yellow { --inner-shadow-neg-color: var(--yellow); }
   .inner-shadow-neg-light-yellow { --inner-shadow-neg-color: var(--light-yellow); }
@@ -1757,6 +1775,10 @@ body {
 
   .inner-shadow-opacity-100 {
     --inner-shadow-color-final: var(--inner-shadow-color, var(--tblack));
+  }
+
+  .hover\:inner-shadow-pos-opacity-80:hover {
+    --inner-shadow-pos-color-final: color-mix(in oklab, var(--inner-shadow-pos-color, var(--inner-shadow-color, var(--tblack))) 80%, transparent);
   }
 
   .inner-shadow-opacity-50 {
