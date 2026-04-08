@@ -1251,6 +1251,26 @@ body {
     -webkit-text-stroke-color: var(--twhite);
   }
 
+  .message-toggle-button .message-toggle-label {
+    display: inline-block;
+    transition:
+      color 200ms ease,
+      text-shadow 200ms ease;
+  }
+
+  .message-toggle-button:hover .message-toggle-label,
+  .message-toggle-button[aria-expanded="true"] .message-toggle-label {
+    text-shadow:
+      2px 0 0 var(--light-yellow),
+      -2px 0 0 var(--light-yellow),
+      0 2px 0 var(--light-yellow),
+      0 -2px 0 var(--light-yellow),
+      1.5px 1.5px 0 var(--light-yellow),
+      -1.5px 1.5px 0 var(--light-yellow),
+      1.5px -1.5px 0 var(--light-yellow),
+      -1.5px -1.5px 0 var(--light-yellow);
+  }
+
   .text-shadow-layer {
     position: relative;
     display: inline-block;

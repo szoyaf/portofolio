@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
@@ -5,6 +6,8 @@ import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 
 export function LandingModule() {
+  const [isMessageOpen, setIsMessageOpen] = useState(false);
+
   return (
     <main className="flex min-h-screen h-fit w-full items-start justify-center pt-12 md:pt-10 lg:pt-14 xl:pt-20 pb-5 md:pb-7 lg:pb-10 xl:pb-14 px-6 md:px-5 lg:px-10 text-white bg-bgblue font-minecraft">
       <div className="flex flex-row gap-7 w-full h-full">
@@ -56,38 +59,63 @@ export function LandingModule() {
           </div>
 
           <Button className="w-full">
-            Download CV
+            Download CV <img src="/icons/Download.svg" alt="download" />
           </Button>
 
           <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
-            <Card className="bg-blue w-full flex flex-col items-center justify-center rounded-pixel-lg px-5 py-6 gap-2.5 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
-              <div className="text-twhite text-center text-h5 md:text-h6 lg:text-h5 underline-dots underline-dots-light-blue">
-                Send me a Message
-              </div>
-
-              <Input
-                type="text"
-                placeholder="Your Name"
-                label="Name"
-                className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
-              />
-
-              <Input
-                type="email"
-                placeholder="Your email"
-                label="Email"
-                className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
-              />
-
-              <Textarea
-                placeholder="Your message"
-                label="Message"
-                className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
-              />
-
-              <Button className="w-full" size="lg">
-                Send Message
+            <Card className="bg-blue w-full flex flex-col rounded-pixel-lg px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
+              <Button
+                type="button"
+                variant="ghost"
+                size="lg"
+                className="w-full justify-between px-4"
+                onClick={() => setIsMessageOpen((current) => !current)}
+                aria-expanded={isMessageOpen}
+                aria-controls="message-form"
+              >
+                <span className="flex items-center gap-2.5">
+                  <img src="/icons/Chat.svg" alt="chat" />
+                  <span className="message-toggle-underline text-twhite text-left text-h5 md:text-h6 lg:text-h5 underline-dots underline-dots-light-blue">
+                      Send me a Message
+                  </span>
+                </span>
+                <img
+                  src="/icons/Down_Arrow.svg"
+                  alt="arrow down"
+                  className={`transition-transform duration-200 ${isMessageOpen ? "rotate-180" : "rotate-0"}`}
+                />
               </Button>
+
+              <div
+                id="message-form"
+                className={`grid overflow-hidden transition-all duration-300 ease-out ${isMessageOpen ? "mt-5 max-h-175 gap-2.5 opacity-100" : "max-h-0 opacity-0"}`}
+              >
+                <Input
+                  type="text"
+                  placeholder="Your Name"
+                  label="Name"
+                  className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
+                />
+
+                <Input
+                  type="email"
+                  placeholder="Your email"
+                  label="Email"
+                  className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
+                />
+
+                <Textarea
+                  placeholder="Your message"
+                  label="Message"
+                  className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
+                />
+
+                <Button className="w-full" size="lg">
+                  <div className="flex flex-row gap-2.5 justify-center items-end">
+                    Send Message <img src="/icons/Send.svg" alt="send" />
+                  </div>
+                </Button>
+              </div>
             </Card>
           </div>
         </div>
