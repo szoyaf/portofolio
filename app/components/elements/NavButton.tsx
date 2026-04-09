@@ -10,6 +10,7 @@ type NavButtonProps = {
   variant?: NavButtonVariant;
   size?: NavButtonSize;
   className?: string;
+  onClick?: () => void;
 };
 
 const baseClasses =
@@ -34,11 +35,13 @@ export function NavButton({
   variant = "default",
   size = "default",
   className,
+  onClick,
 }: NavButtonProps) {
   return (
     <button
       type="button"
       aria-expanded={variant === "active"}
+      onClick={onClick}
       className={cn(
         baseClasses,
         variantClasses[variant],

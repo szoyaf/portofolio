@@ -2910,6 +2910,10 @@ body {
     --inner-shadow-y: 5px;
   }
 
+  .inner-shadow-pixel-pos-5 {
+    --inner-shadow-effect: inset 5px 5px 0 var(--inner-shadow-pos-color-final, var(--inner-shadow-color-final, var(--inner-shadow-color, var(--tblack))));
+  }
+
   .inner-shadow-pixel-neg-10 {
     --inner-shadow-x: -10px;
     --inner-shadow-y: -10px;

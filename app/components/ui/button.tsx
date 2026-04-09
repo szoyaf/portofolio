@@ -16,6 +16,7 @@ const buttonVariants = cva(
         // secondary:
         //   "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost: "hover:text-dark-blue aria-expanded:text-dark-blue",
+        light: "text-twhite inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow bg-light-yellow inner-shadow-pos-lighter-yellow inner-shadow-pos-opacity-100 hover:bg-yellow hover:inner-shadow-pos-opacity-80 aria-expanded:bg-lighter-yellow",
         // destructive:
         //   "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         // link: "text-primary underline-offset-4 hover:underline",
@@ -24,8 +25,8 @@ const buttonVariants = cva(
         default:
           "text-h5 md:text-h6 lg:text-h5 h-18 gap-1.5 px-5 inner-shadow-pixel-both-10 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
         xs: "h-6 gap-1 px-2 text-xs box-shadow-pixel-5 box-shadow-dark-blue box-shadow-opacity-50 inner-shadow-pixel-both-5 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 px-2.5 text-[0.8rem] box-shadow-pixel-5 box-shadow-dark-blue box-shadow-opacity-50 inner-shadow-pixel-both-5 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "text-p1 h-12 gap-1.5 px-2.5 shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50 inner-shadow-pixel-both-5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 ",
+        sm: "rounded-pixel-sm pb-1.75 pt-2.75 px-2.5",
+        lg: "text-p1 h-12 gap-1.5 px-2.5 box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50 inner-shadow-pixel-both-5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 ",
         icon: "size-8 box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50 inner-shadow-pixel-both-10",
         "icon-xs":
           "size-6 box-shadow-pixel-5 box-shadow-dark-blue box-shadow-opacity-50 inner-shadow-pixel-both-5 [&_svg:not([class*='size-'])]:size-3",
