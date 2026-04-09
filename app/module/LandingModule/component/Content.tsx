@@ -87,7 +87,9 @@ export function Content() {
         <div
           className={`flex flex-row gap-4 origin-top-right overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             hideSectionButtons
-              ? "max-w-0 opacity-0 translate-x-8 pointer-events-none"
+              ? isRetracted
+                ? "hidden"
+                : "max-w-0 opacity-0 translate-x-8 pointer-events-none"
               : "max-w-225 opacity-100 translate-x-0"
           }`}
         >
@@ -114,11 +116,11 @@ export function Content() {
 
       <div
         className={`w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50 origin-top-right overflow-hidden will-change-[transform,opacity,max-height] transition-all ${
-          isRetracted ? "duration-450" : "duration-900"
+          isRetracted ? "duration-200" : "duration-200"
         } ease-[cubic-bezier(0.19,1,0.22,1)] ${
           isRetracted
-            ? "max-h-0 opacity-0 scale-85 -translate-y-3 pointer-events-none"
-            : "max-h-350 opacity-100 scale-100 translate-y-0 -mt-0.5"
+            ? "max-h-0 scale-85 opacity-0 -translate-y-3 pointer-events-none"
+            : "max-h-350 scale-100 opacity-100 translate-y-0 -mt-0.5"
         }`}
       >
         <div className="bg-yellow w-full min-h-40 h-fit rounded-pixel-lg-no-tr px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
