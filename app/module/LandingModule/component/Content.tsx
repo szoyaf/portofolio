@@ -154,10 +154,8 @@ export function Content() {
       >
         <div className="bg-yellow w-full min-h-40 h-fit rounded-pixel-lg-no-tr px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
           <div
-            className={`transition-[opacity,transform,filter] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity,transform,filter] ${
-              isSectionVisible
-                ? "opacity-100 translate-y-0 blur-0"
-                : "opacity-0 translate-y-1 blur-[1px] pointer-events-none"
+            className={`transition-opacity duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity] ${
+              isSectionVisible ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
             {displayedSection === "about" && <AboutMeContent />}

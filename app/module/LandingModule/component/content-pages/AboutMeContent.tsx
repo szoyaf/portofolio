@@ -1,11 +1,56 @@
+import { useEffect, useRef } from "react";
+import { LazyImage } from "../../../../components/elements/LazyImage";
+import gsap from "gsap";
+
 export function AboutMeContent() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const root = containerRef.current;
+    if (!root) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      const sections = gsap.utils.toArray<HTMLElement>("[data-about-anim]");
+
+      gsap.set(sections, {
+        autoAlpha: 0,
+        y: 16,
+      });
+
+      gsap.to(sections, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.08,
+        clearProps: "opacity,visibility,transform",
+      });
+    }, root);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col lg:flex-row gap-5.25 max-lg:items-center">
-      <div className="w-[50%] lg:w-[30%] rounded-pixel-sm h-fit">
-        <img src="/selfie.png" alt="Self Pic" className="w-full h-full" />
+    <div
+      ref={containerRef}
+      className="flex flex-col lg:flex-row gap-5.25 max-lg:items-center h-fit"
+    >
+      <div data-about-anim className="w-[50%] lg:w-[30%] rounded-pixel-sm h-full">
+        <LazyImage
+          src="/selfie.png"
+          alt="Self Pic"
+          className="h-full w-full"
+        />
       </div>
       <div className="lg:w-[70%] flex flex-col gap-2.5 justify-start pt-2.5">
-        <div className="flex flex-row gap-2.5 justify-start items-start">
+        <div
+          data-about-anim
+          className="flex flex-row gap-2.5 justify-start items-start"
+        >
           <div className="text-h5 text-stroke-4 text-stroke-bright-red">
             Shaney Zoya Fiandi
           </div>
@@ -13,7 +58,10 @@ export function AboutMeContent() {
           <div className="text-h5 text-tblack">| Software Engineer</div>
         </div>
 
-        <div className="bg-dark-yellow rounded-pixel-sm flex flex-col gap-2 p-5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-pos-tblack inner-shadow-pos-opacity-25">
+        <div
+          data-about-anim
+          className="bg-dark-yellow rounded-pixel-sm flex flex-col gap-2 p-5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-pos-tblack inner-shadow-pos-opacity-25"
+        >
           <div className="space-y-px">
             <div className="text-twhite text-h6">
               Major in Information System
@@ -45,7 +93,7 @@ export function AboutMeContent() {
           </div>
         </div>
 
-        <div className="text-twhite text-h6">
+        <div data-about-anim className="text-twhite text-h6">
           <span className="text-tblack">
             Language:
             <br />
@@ -54,7 +102,7 @@ export function AboutMeContent() {
           <br />• English – Fluent
         </div>
 
-        <div className="items-end text-tblack text-h6">
+        <div data-about-anim className="items-end text-tblack text-h6">
           p.s. click the
           <span className="text-bright-red text-h4"> ... </span>
           on the top right corner to get a better view of my planet !
