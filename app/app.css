@@ -59,12 +59,22 @@ body {
   @apply bg-black dark:bg-gray-950;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   overflow-x: hidden;
   overflow-x: clip;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .contact-icon-link {
