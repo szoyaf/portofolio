@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "~/components/ui/button";
 import { LazyImage } from "../../../../components/elements/LazyImage";
+import { ImagePreviewDialog } from "../../../../components/elements/ImagePreviewDialog";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -104,12 +105,14 @@ const projectList: ProjectItem[] = [
 function ProjectCard({ project }: { project: ProjectItem }) {
   return (
     <div className="w-full rounded-pixel-sm min-h-10 bg-yellow">
-      <LazyImage
-        src={project.image}
-        alt={`${project.title} preview`}
-        wrapperClassName="w-full aspect-video"
-        className="h-full w-full object-cover"
-      />
+      <ImagePreviewDialog src={project.image} alt={`${project.title} preview`}>
+        <LazyImage
+          src={project.image}
+          alt={`${project.title} preview`}
+          wrapperClassName="w-full aspect-video"
+          className="h-full w-full object-cover"
+        />
+      </ImagePreviewDialog>
       <div className="bg-blue flex flex-col gap-1 p-3 inner-shadow-pixel inner-shadow-pixel-pos-5 inner-shadow-pos-dark-blue inner-shadow-pos-opacity-100">
         <div className="text-h6 text-twhite text-stroke-4 text-stroke-dark-blue">
           {project.title}

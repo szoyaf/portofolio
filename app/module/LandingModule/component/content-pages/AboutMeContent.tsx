@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { LazyImage } from "../../../../components/elements/LazyImage";
+import { ImagePreviewDialog } from "../../../../components/elements/ImagePreviewDialog";
 import gsap from "gsap";
 
 export function AboutMeContent() {
@@ -39,12 +40,17 @@ export function AboutMeContent() {
       ref={containerRef}
       className="flex flex-col lg:flex-row gap-5.25 max-lg:items-center h-fit"
     >
-      <div data-about-anim className="w-[50%] lg:w-[30%] rounded-pixel-sm h-full">
-        <LazyImage
-          src="/selfie.png"
-          alt="Self Pic"
-          className="h-full w-full"
-        />
+      <div
+        data-about-anim
+        className="w-[50%] lg:w-[30%] rounded-pixel-sm h-full"
+      >
+        <ImagePreviewDialog src="/selfie.png" alt="Self Pic">
+          <LazyImage
+            src="/selfie.png"
+            alt="Self Pic"
+            className="h-full w-full"
+          />
+        </ImagePreviewDialog>
       </div>
       <div className="lg:w-[70%] flex flex-col gap-2.5 justify-start pt-2.5">
         <div
