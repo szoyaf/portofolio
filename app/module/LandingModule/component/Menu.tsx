@@ -4,9 +4,18 @@ import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
+import { useScrambleReveal } from "./animations/useScrambleReveal";
 
 export function Menu() {
   const [isMessageOpen, setIsMessageOpen] = useState(false);
+  const displayTitle = useScrambleReveal("Zoya's Planet", {
+    stepDuration: 60,
+    startDelay: 100,
+  });
+  const displaySubtitle = useScrambleReveal("Shaney Zoya Fiandi", {
+    stepDuration: 45,
+    startDelay: 260,
+  });
 
   return (
     <div className="flex flex-col gap-6 md:gap-3 lg:gap-5 xl:gap-7 w-full md:w-[35%] lg:w-[25%]">
@@ -15,10 +24,10 @@ export function Menu() {
           data-text="Zoya's Planet"
           className="text-shadow-layer text-center text-h1 md:text-h3 lg:text-h2 xl:text-h1 text-kinda-yellow text-shadow-4 md:text-shadow-2 lg:text-shadow-3 xl:text-shadow-4 text-shadow-kinda-yellow text-stroke-8 md:text-stroke-4 lg:text-stroke-6 xl:text-stroke-8 text-stroke-lighter-yellow"
         >
-          Zoya's Planet
+          {displayTitle}
         </h1>
         <p className="text-h5 md:text-h6 lg:text-h5 text-twhite text-center text-stroke-2 text-stroke-blue">
-          Shaney Zoya Fiandi
+          {displaySubtitle}
         </p>
       </div>
 
@@ -99,8 +108,10 @@ export function Menu() {
       </div>
 
       <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
-        <Button className="w-full">
-          Download CV <img src="/icons/Download.svg" alt="download" />
+        <Button className="w-full" asChild>
+          <a href="/ShaneyZoyaFiandi_CV.pdf" download>
+            Download CV <img src="/icons/Download.svg" alt="download" />
+          </a>
         </Button>
       </div>
 

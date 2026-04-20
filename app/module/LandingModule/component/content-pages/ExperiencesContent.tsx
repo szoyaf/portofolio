@@ -2,89 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-type ExperienceItem = {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-  companyUrl?: string;
-};
-
-const experienceList: ExperienceItem[] = [
-  {
-    company: "RISTEK Fakultas Ilmu Komputer",
-    role: "Lead of Web Development",
-    period: "2023 - Present (6th Semester)",
-    description:
-      "Building and leading web squads that deliver internal and public-facing products with strong engineering quality and maintainable architecture.",
-    companyUrl:
-      "https://www.linkedin.com/company/ristek-fakultas-ilmu-komputer-universitas-indonesia/posts/?feedView=all",
-  },
-  {
-    company: "Software Engineering Organization",
-    role: "Frontend Engineer",
-    period: "2022 - 2023",
-    description:
-      "Developed responsive interfaces, improved performance budgets, and collaborated closely with design teams to ship polished user experiences.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-  {
-    company: "Campus Tech Initiatives",
-    role: "Product Developer",
-    period: "2021 - 2022",
-    description:
-      "Worked on data-driven product features and tooling to help student communities run programs more efficiently.",
-  },
-];
+import { EXPERIENCE_LIST, PROJECTS_TEXT } from "./const";
 
 export function ExperiencesContent() {
   const REFRESH_DELAY_MS = 260;
@@ -170,7 +88,7 @@ export function ExperiencesContent() {
       className="max-h-100 w-full overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#236489_transparent]"
     >
       <div className="flex flex-col gap-5 w-full">
-        {experienceList.map((experience, index) => (
+        {EXPERIENCE_LIST.map((experience, index) => (
           <div
             key={`${experience.company}-${experience.role}-${index}`}
             ref={(element) => registerItemRef(element, index)}
@@ -189,7 +107,7 @@ export function ExperiencesContent() {
                   >
                     <img
                       src="/icons/linkedin.svg"
-                      alt="linkedin"
+                      alt={PROJECTS_TEXT.linkedinAlt}
                       className="contact-icon size-5"
                     />
                   </Link>
@@ -204,7 +122,7 @@ export function ExperiencesContent() {
               <div className="flex flex-row gap-2 justify-start items-start">
                 <img
                   src="/icons/date-red.svg"
-                  alt="Calendar"
+                  alt={PROJECTS_TEXT.dateAlt}
                   className="size-3.5"
                 />
                 <div className="text-light-red font-bold">

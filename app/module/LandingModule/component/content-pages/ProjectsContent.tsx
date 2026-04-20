@@ -5,107 +5,7 @@ import { ImagePreviewDialog } from "../../../../components/elements/ImagePreview
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-type ProjectItem = {
-  title: string;
-  description: string;
-  images: string[];
-  tags: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-};
-
-const projectList: ProjectItem[] = [
-  {
-    title: "Zoya Portfolio",
-    description:
-      "Pixel-themed interactive portfolio with custom motion and stylized component system.",
-    images: [
-      "/placeholder.png",
-      "/placeholder.png?slide=2",
-      "/placeholder.png?slide=3",
-    ],
-    tags: ["TypeScript", "React", "Tailwind"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    title: "Task Orchestrator",
-    description:
-      "Workflow dashboard for planning, assignment, and execution tracking across teams.",
-    images: ["/placeholder.png", "/placeholder.png?slide=2"],
-    tags: ["TypeScript", "Node", "PostgreSQL"],
-    githubUrl: "https://github.com",
-  },
-  {
-    title: "Campus Hub",
-    description:
-      "Community platform with event aggregation, organization profiles, and live announcements.",
-    images: ["/placeholder.png"],
-    tags: ["React", "Vite", "REST API"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    title: "Analytics Snapshot",
-    description:
-      "Compact reporting interface for KPI trends and performance benchmarking in one view.",
-    images: ["/placeholder.png"],
-    tags: ["Charting", "TypeScript", "UI/UX"],
-    githubUrl: "https://github.com",
-  },
-  {
-    title: "Campus Hub",
-    description:
-      "Community platform with event aggregation, organization profiles, and live announcements.",
-    images: ["/placeholder.png"],
-    tags: ["React", "Vite", "REST API"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    title: "Analytics Snapshot",
-    description:
-      "Compact reporting interface for KPI trends and performance benchmarking in one view.",
-    images: ["/placeholder.png"],
-    tags: ["Charting", "TypeScript", "UI/UX"],
-    githubUrl: "https://github.com",
-  },
-  {
-    title: "Campus Hub",
-    description:
-      "Community platform with event aggregation, organization profiles, and live announcements.",
-    images: ["/placeholder.png"],
-    tags: ["React", "Vite", "REST API"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    title: "Analytics Snapshot",
-    description:
-      "Compact reporting interface for KPI trends and performance benchmarking in one view.",
-    images: ["/placeholder.png"],
-    tags: ["Charting", "TypeScript", "UI/UX"],
-    githubUrl: "https://github.com",
-  },
-  {
-    title: "Campus Hub",
-    description:
-      "Community platform with event aggregation, organization profiles, and live announcements.",
-    images: ["/placeholder.png"],
-    tags: ["React", "Vite", "REST API"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    title: "Analytics Snapshot",
-    description:
-      "Compact reporting interface for KPI trends and performance benchmarking in one view.",
-    images: ["/placeholder.png"],
-    tags: ["Charting", "TypeScript", "UI/UX"],
-    githubUrl: "https://github.com",
-  },
-];
+import { PROJECT_LIST, PROJECTS_TEXT, type ProjectItem } from "./const";
 
 function ProjectImageCarousel({
   images,
@@ -115,7 +15,7 @@ function ProjectImageCarousel({
   title: string;
 }) {
   const safeImages = useMemo(
-    () => (images.length ? images : ["/placeholder.png"]),
+    () => (images.length ? images : [PROJECTS_TEXT.fallbackImage]),
     [images],
   );
   const [activeIndex, setActiveIndex] = useState(0);
@@ -137,11 +37,11 @@ function ProjectImageCarousel({
     <div className="relative">
       <ImagePreviewDialog
         src={activeImage}
-        alt={`${title} preview ${activeIndex + 1}`}
+        alt={`${title} ${PROJECTS_TEXT.previewAltSuffix} ${activeIndex + 1}`}
       >
         <LazyImage
           src={activeImage}
-          alt={`${title} preview ${activeIndex + 1}`}
+          alt={`${title} ${PROJECTS_TEXT.previewAltSuffix} ${activeIndex + 1}`}
           wrapperClassName="w-full aspect-video"
           className="h-full w-full object-cover"
         />
@@ -152,7 +52,7 @@ function ProjectImageCarousel({
           <button
             type="button"
             onClick={previousImage}
-            aria-label="Previous project image"
+            aria-label={PROJECTS_TEXT.previousImageAriaLabel}
             className="absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/55 p-1.5 text-white transition-colors hover:bg-black/75"
           >
             <ChevronLeft className="size-4" />
@@ -161,7 +61,7 @@ function ProjectImageCarousel({
           <button
             type="button"
             onClick={nextImage}
-            aria-label="Next project image"
+            aria-label={PROJECTS_TEXT.nextImageAriaLabel}
             className="absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/55 p-1.5 text-white transition-colors hover:bg-black/75"
           >
             <ChevronRight className="size-4" />
@@ -172,7 +72,7 @@ function ProjectImageCarousel({
               <button
                 key={`${title}-slide-${index}`}
                 type="button"
-                aria-label={`Go to image ${index + 1}`}
+                aria-label={`${PROJECTS_TEXT.goToImageAriaLabelPrefix} ${index + 1}`}
                 onClick={() => setActiveIndex(index)}
                 className={`size-1.75 rounded-full transition-colors ${
                   index === activeIndex ? "bg-white" : "bg-white/45"
@@ -220,7 +120,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               >
                 <img
                   src="/icons/github.svg"
-                  alt="GitHub"
+                  alt={PROJECTS_TEXT.githubAlt}
                   className="size-4.5"
                 />
               </Button>
@@ -233,8 +133,8 @@ function ProjectCard({ project }: { project: ProjectItem }) {
                 onClick={() => window.open(project.liveUrl, "_blank")}
               >
                 <div className="flex flex-row gap-2.5 items-center justify-center">
-                  <span className="-mb-1">Live Demo</span>
-                  <img src="/icons/link.svg" alt="Open link" />
+                  <span className="-mb-1">{PROJECTS_TEXT.liveDemoLabel}</span>
+                  <img src="/icons/link.svg" alt={PROJECTS_TEXT.openLinkAlt} />
                 </div>
               </Button>
             )}
@@ -311,7 +211,7 @@ export function ProjectsContent() {
       className="max-h-100 w-full overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#236489_transparent]"
     >
       <div className="grid lg:grid-cols-2 gap-5 w-full shape-shadow-host box-shadow-pixel-5 box-shadow-dark-yellow box-shadow-opacity-100">
-        {projectList.map((project, index) => (
+        {PROJECT_LIST.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
             ref={(element) => registerItemRef(element, index)}

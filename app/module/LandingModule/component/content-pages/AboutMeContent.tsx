@@ -1,39 +1,39 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LazyImage } from "../../../../components/elements/LazyImage";
 import { ImagePreviewDialog } from "../../../../components/elements/ImagePreviewDialog";
-import gsap from "gsap";
+import { useScrambleReveal } from "../animations/useScrambleReveal";
+import { useStaggerReveal } from "../animations/useStaggerReveal";
+import { ABOUT_TEXT } from "./const";
 
 export function AboutMeContent() {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [activeWorkTitleIndex, setActiveWorkTitleIndex] = useState(0);
+  const displayWorkTitle = useScrambleReveal(
+    ABOUT_TEXT.workTitles[activeWorkTitleIndex],
+    {
+      stepDuration: 35,
+      startDelay: 120,
+    },
+  );
 
   useEffect(() => {
-    const root = containerRef.current;
-    if (!root) {
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      const sections = gsap.utils.toArray<HTMLElement>("[data-about-anim]");
-
-      gsap.set(sections, {
-        autoAlpha: 0,
-        y: 16,
-      });
-
-      gsap.to(sections, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.08,
-        clearProps: "opacity,visibility,transform",
-      });
-    }, root);
+    const roleRotateTimer = setInterval(() => {
+      setActiveWorkTitleIndex(
+        (currentIndex) => (currentIndex + 1) % ABOUT_TEXT.workTitles.length,
+      );
+    }, 2600);
 
     return () => {
-      ctx.revert();
+      clearInterval(roleRotateTimer);
     };
   }, []);
+
+  useStaggerReveal(containerRef.current, {
+    selector: "[data-about-anim]",
+    duration: 0.5,
+    y: 16,
+    stagger: 0.08,
+  });
 
   return (
     <div
@@ -44,10 +44,10 @@ export function AboutMeContent() {
         data-about-anim
         className="w-[50%] lg:w-[30%] rounded-pixel-sm h-full"
       >
-        <ImagePreviewDialog src="/selfie.png" alt="Self Pic">
+        <ImagePreviewDialog src="/selfie.png" alt={ABOUT_TEXT.profileImageAlt}>
           <LazyImage
             src="/selfie.png"
-            alt="Self Pic"
+            alt={ABOUT_TEXT.profileImageAlt}
             className="h-full w-full"
           />
         </ImagePreviewDialog>
@@ -58,10 +58,10 @@ export function AboutMeContent() {
           className="flex flex-row gap-2.5 justify-start items-start"
         >
           <div className="text-h5 text-stroke-4 text-stroke-bright-red">
-            Shaney Zoya Fiandi
+            {ABOUT_TEXT.name}
           </div>
 
-          <div className="text-h5 text-tblack">| Software Engineer</div>
+          <div className="text-h5 text-tblack">| {displayWorkTitle}</div>
         </div>
 
         <div
@@ -69,49 +69,50 @@ export function AboutMeContent() {
           className="bg-dark-yellow rounded-pixel-sm flex flex-col gap-2 p-5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-pos-tblack inner-shadow-pos-opacity-25"
         >
           <div className="space-y-px">
-            <div className="text-twhite text-h6">
-              Major in Information System
-            </div>
+            <div className="text-twhite text-h6">{ABOUT_TEXT.major}</div>
             <div className="text-dark-yellow text-h5 text-stroke-4 text-stroke-lighter-yellow">
-              Universitas Indonesia
+              {ABOUT_TEXT.university}
             </div>
           </div>
 
           <div className="space-y-1 font-geologica text-p2">
             <div className="flex flex-row gap-2.5 justify-start items-start">
-              <img src="/icons/date.svg" alt="Calendar" className="size-3.5" />
-              <div className="text-twhite font-bold">
-                2023 - Present (6th Semester)
-              </div>
+              <img
+                src="/icons/date.svg"
+                alt={ABOUT_TEXT.calendarAlt}
+                className="size-3.5"
+              />
+              <div className="text-twhite font-bold">{ABOUT_TEXT.period}</div>
             </div>
 
-            <div className="text-twhite font-semibold">
-              Information Systems undergraduate student with an interest in
-              Software Engineering, focusing on the design and development of
-              technology-driven solutions that align systems, data, and
-              organizational needs.
-            </div>
+            <div className="text-twhite font-semibold">{ABOUT_TEXT.bio}</div>
           </div>
 
           <div className="flex flex-row gap-2">
-            <img src="/icons/gpa.svg" alt="GPA" className="size-3.5" />
-            <div className="text-twhite text-h7">GPA: 3.85/4.0</div>
+            <img
+              src="/icons/gpa.svg"
+              alt={ABOUT_TEXT.gpaAlt}
+              className="size-3.5"
+            />
+            <div className="text-twhite text-h7">{ABOUT_TEXT.gpa}</div>
           </div>
         </div>
 
         <div data-about-anim className="text-twhite text-h6">
           <span className="text-tblack">
-            Language:
+            {ABOUT_TEXT.languageLabel}
             <br />
           </span>
-          • Indonesian – Native
-          <br />• English – Fluent
+          • {ABOUT_TEXT.languageLines[0]}
+          <br />• {ABOUT_TEXT.languageLines[1]}
         </div>
 
         <div data-about-anim className="items-end text-tblack text-h6">
-          p.s. click the
-          <span className="text-bright-red text-h4"> ... </span>
-          on the top right corner to get a better view of my planet !
+          {ABOUT_TEXT.notePrefix}
+          <span className="text-bright-red text-h4">
+            {ABOUT_TEXT.noteHighlight}
+          </span>
+          {ABOUT_TEXT.noteSuffix}
         </div>
       </div>
     </div>

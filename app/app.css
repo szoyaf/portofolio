@@ -2095,6 +2095,10 @@ body::-webkit-scrollbar {
 
   --tblack: oklch(0.1957 0 0);
   --twhite: oklch(0.9672 0 0);
+
+  --caret-color: var(--lightest-yellow);
+  --selection-bg: color-mix(in oklab, var(--light-yellow) 52%, transparent);
+  --selection-text: var(--twhite);
 }
 
 .dark {
@@ -2148,6 +2152,26 @@ body::-webkit-scrollbar {
 
   --tblack: oklch(0.1957 0 0);
   --twhite: oklch(0.9672 0 0);
+
+  --caret-color: var(--lighter-yellow);
+  --selection-bg: color-mix(in oklab, var(--blue) 65%, transparent);
+  --selection-text: var(--twhite);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  caret-color: var(--caret-color);
 }
 
 @layer base {

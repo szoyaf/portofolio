@@ -1,11 +1,14 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { Button } from "~/components/ui/button";
+import { Background } from "~/module/LandingModule/component/Background";
 import { Toaster } from "~/components/ui/sonner";
 import { TooltipProvider } from "~/components/ui/tooltip";
 
@@ -65,6 +68,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
+  const isNotFound = isRouteErrorResponse(error) && error.status === 404;
 
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? "404" : "Error";
@@ -77,12 +81,32 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     stack = error.stack;
   }
 
+  if (isNotFound) {
+    return (
+      <main className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-bgblue p-6 text-twhite font-minecraft">
+        <Background />
+
+        <section className="w-fit relative z-10 flex max-w-5xl flex-col items-center gap-2 text-center">
+          <h1 className="text-shadow-layer text-shadow-8 text-9xl md:text-9xl md:leading-none text-kinda-yellow text-stroke-10 text-stroke-lighter-yellow">
+            404
+          </h1>
+
+          <div className="flex flex-col items-center justify-center gap-3 w-full">
+            <Button size="lg" asChild className="w-full">
+              <Link to="/">Return Home</Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="pt-16 p-4 container mx-auto text-twhite">
+      <h1 className="text-h4">{message}</h1>
+      <p className="font-geologica">{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="mt-4 w-full p-4 overflow-x-auto rounded-md bg-black/35">
           <code>{stack}</code>
         </pre>
       )}
