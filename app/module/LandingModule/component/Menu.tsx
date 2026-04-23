@@ -136,7 +136,11 @@ export function Menu() {
 
       <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
         <Button className="w-full" asChild>
-          <a href="/ShaneyZoyaFiandi_CV.pdf" download>
+          <a
+            href="/ShaneyZoyaFiandi_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Download CV <img src="/icons/Download.svg" alt="download" />
           </a>
         </Button>
