@@ -1,5 +1,6 @@
+import { LandingAction } from "~/module/LandingModule/action";
 import { LandingModule } from "../module/LandingModule/landing";
-import type { MetaFunction } from "react-router";
+import type { ActionFunctionArgs, MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [
@@ -27,4 +28,8 @@ export const meta: MetaFunction = () => {
 
 export default function LandingPage() {
   return <LandingModule />;
+}
+
+export async function action(args: ActionFunctionArgs) {
+  return LandingAction(args);
 }

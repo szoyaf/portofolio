@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useFetcher } from "react-router";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
@@ -7,7 +7,11 @@ import { Textarea } from "~/components/ui/textarea";
 import { useScrambleReveal } from "./animations/useScrambleReveal";
 
 export function Menu() {
+  const fetcher = useFetcher();
   const [isMessageOpen, setIsMessageOpen] = useState(false);
+  const [messageName, setMessageName] = useState("");
+  const [messageEmail, setMessageEmail] = useState("");
+  const [messageContent, setMessageContent] = useState("");
   const displayTitle = useScrambleReveal("Zoya's Planet", {
     stepDuration: 60,
     startDelay: 100,
@@ -16,6 +20,17 @@ export function Menu() {
     stepDuration: 45,
     startDelay: 260,
   });
+
+  const handleSubmitMessage = () => {
+    fetcher.submit(
+      {
+        name: messageName,
+        email: messageEmail,
+        message: messageContent,
+      },
+      { method: 'POST' }
+    );
+  };
 
   return (
     <div className="flex flex-col gap-6 md:gap-3 lg:gap-5 xl:gap-7 w-full md:w-[35%] lg:w-[25%]">
@@ -147,6 +162,8 @@ export function Menu() {
               type="text"
               placeholder="Your Name"
               label="Name"
+              value={messageName}
+              onChange={(e) => setMessageName(e.target.value)}
               className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
             />
 
@@ -154,16 +171,20 @@ export function Menu() {
               type="email"
               placeholder="Your email"
               label="Email"
+              value={messageEmail}
+              onChange={(e) => setMessageEmail(e.target.value)}
               className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
             />
 
             <Textarea
               placeholder="Your message"
               label="Message"
+              value={messageContent}
+              onChange={(e) => setMessageContent(e.target.value)}
               className="bg-transparent border border-light-blue rounded-[10px] w-full text-left text-sm text-twhite focus:outline-none focus:ring-2 focus:ring-light-blue focus:ring-offset-2 focus:ring-offset-bgblue"
             />
 
-            <Button className="w-full" size="lg">
+            <Button className="w-full" size="lg" onClick={handleSubmitMessage}>
               <div className="flex flex-row gap-2.5 justify-center items-end">
                 Send Message <img src="/icons/Send.svg" alt="send" />
               </div>
