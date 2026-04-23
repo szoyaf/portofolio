@@ -5,6 +5,7 @@ import { Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { useScrambleReveal } from "./animations/useScrambleReveal";
+import { toast } from "sonner";
 
 export function Menu() {
   const fetcher = useFetcher();
@@ -28,8 +29,19 @@ export function Menu() {
         email: messageEmail,
         message: messageContent,
       },
-      { method: 'POST' }
+      { method: "POST" },
     );
+
+    if (fetcher.state === "idle" && fetcher.data?.success) {
+      setMessageName("");
+      setMessageEmail("");
+      setMessageContent("");
+      setIsMessageOpen(false);
+
+      toast.success("Message sent successfully!", {
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+    }
   };
 
   return (

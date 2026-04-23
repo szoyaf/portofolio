@@ -3146,6 +3146,182 @@ textarea,
   .underline-dots-tblack { --underline-dots-color: var(--tblack); }
   .underline-dots-twhite { --underline-dots-color: var(--twhite); }
 
+  .cn-toast {
+    border: none !important;
+    background: var(--blue) !important;
+    color: var(--twhite) !important;
+    min-height: 64px;
+    padding: 0.9rem 1rem !important;
+    margin-bottom: 0.75rem;
+    clip-path: polygon(0px calc(100% - 10px),
+      2px calc(100% - 10px),
+      2px calc(100% - 8px),
+      2px calc(100% - 6px),
+      4px calc(100% - 6px),
+      4px calc(100% - 4px),
+      6px calc(100% - 4px),
+      6px calc(100% - 2px),
+      8px calc(100% - 2px),
+      10px calc(100% - 2px),
+      10px 100%,
+      calc(100% - 10px) 100%,
+      calc(100% - 10px) calc(100% - 2px),
+      calc(100% - 8px) calc(100% - 2px),
+      calc(100% - 6px) calc(100% - 2px),
+      calc(100% - 6px) calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 6px),
+      calc(100% - 2px) calc(100% - 6px),
+      calc(100% - 2px) calc(100% - 8px),
+      calc(100% - 2px) calc(100% - 10px),
+      100% calc(100% - 10px),
+      100% 10px,
+      calc(100% - 2px) 10px,
+      calc(100% - 2px) 8px,
+      calc(100% - 2px) 6px,
+      calc(100% - 4px) 6px,
+      calc(100% - 4px) 4px,
+      calc(100% - 6px) 4px,
+      calc(100% - 6px) 2px,
+      calc(100% - 8px) 2px,
+      calc(100% - 10px) 2px,
+      calc(100% - 10px) 0px,
+      10px 0px,
+      10px 2px,
+      8px 2px,
+      6px 2px,
+      6px 4px,
+      4px 4px,
+      4px 6px,
+      2px 6px,
+      2px 8px,
+      0px 10px) !important;
+    box-shadow: 10px 10px 0 color-mix(in oklab, var(--dark-blue) 50%, transparent) !important;
+    position: relative;
+    isolation: isolate;
+    transition: transform 160ms ease, filter 160ms ease;
+  }
+
+  .cn-toast::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    clip-path: inherit;
+    box-shadow: inset 5px 5px 0 var(--light-blue), inset -5px -5px 0 color-mix(in oklab, var(--tblack) 25%, transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cn-toast > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cn-toast[data-styled="true"]:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.02);
+  }
+
+  .cn-toast-title {
+    color: var(--twhite) !important;
+    font-size: var(--text-p1);
+    line-height: var(--text-p1--line-height);
+    text-shadow: 2px 2px 0 color-mix(in oklab, var(--dark-blue) 50%, transparent);
+  }
+
+  .cn-toast-description {
+    color: color-mix(in oklab, var(--twhite) 86%, transparent) !important;
+    font-size: var(--text-p2);
+    line-height: var(--text-p2--line-height);
+    margin-top: 0.2rem;
+  }
+
+  .cn-toast-icon {
+    color: var(--lightest-yellow) !important;
+  }
+
+  .cn-toast-close {
+    border: none !important;
+    background: color-mix(in oklab, var(--dark-blue) 45%, transparent) !important;
+    color: var(--twhite) !important;
+  }
+
+  .cn-toast-action,
+  .cn-toast-cancel {
+    border: none !important;
+    background: var(--yellow) !important;
+    color: var(--twhite) !important;
+    clip-path: polygon(0px calc(100% - 10px),
+      2px calc(100% - 10px),
+      2px calc(100% - 8px),
+      2px calc(100% - 6px),
+      4px calc(100% - 6px),
+      4px calc(100% - 4px),
+      6px calc(100% - 4px),
+      6px calc(100% - 2px),
+      8px calc(100% - 2px),
+      10px calc(100% - 2px),
+      10px 100%,
+      calc(100% - 10px) 100%,
+      calc(100% - 10px) calc(100% - 2px),
+      calc(100% - 8px) calc(100% - 2px),
+      calc(100% - 6px) calc(100% - 2px),
+      calc(100% - 6px) calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 6px),
+      calc(100% - 2px) calc(100% - 6px),
+      calc(100% - 2px) calc(100% - 8px),
+      calc(100% - 2px) calc(100% - 10px),
+      100% calc(100% - 10px),
+      100% 10px,
+      calc(100% - 2px) 10px,
+      calc(100% - 2px) 8px,
+      calc(100% - 2px) 6px,
+      calc(100% - 4px) 6px,
+      calc(100% - 4px) 4px,
+      calc(100% - 6px) 4px,
+      calc(100% - 6px) 2px,
+      calc(100% - 8px) 2px,
+      calc(100% - 10px) 2px,
+      calc(100% - 10px) 0px,
+      10px 0px,
+      10px 2px,
+      8px 2px,
+      6px 2px,
+      6px 4px,
+      4px 4px,
+      4px 6px,
+      2px 6px,
+      2px 8px,
+      0px 10px) !important;
+    box-shadow: 5px 5px 0 color-mix(in oklab, var(--dark-blue) 50%, transparent);
+  }
+
+  .cn-toast-action:hover,
+  .cn-toast-cancel:hover {
+    filter: brightness(1.05);
+  }
+
+  .cn-toast-success {
+    background: color-mix(in oklab, var(--blue) 78%, var(--light-blue)) !important;
+  }
+
+  .cn-toast-info {
+    background: color-mix(in oklab, var(--blue) 84%, var(--bgblue)) !important;
+  }
+
+  .cn-toast-warning {
+    background: color-mix(in oklab, var(--dark-yellow) 68%, var(--blue)) !important;
+  }
+
+  .cn-toast-error {
+    background: color-mix(in oklab, var(--red) 65%, var(--blue)) !important;
+  }
+
+  .cn-toast-loading {
+    background: color-mix(in oklab, var(--bgblue) 65%, var(--blue)) !important;
+  }
+
 }
 @keyframes fadeSlideUp {
   from {
