@@ -2144,15 +2144,16 @@ body::-webkit-scrollbar {
   --lightest-yellow: oklch(0.8173 0.0744 292.46);
   --kinda-yellow: oklch(31.827% 0.13948 319.749);
   --dark-yellow: oklch(31.874% 0.14953 319.819);
-  
+
   --blue: oklch(0.3208 0.0376 297.35);
   --light-blue: oklch(45.659% 0.07489 296.299);
   --dark-blue: oklch(26.054% 0.03944 296.693);
   --bgblue: oklch(0.2017 0.0428 325.02);
 
   --red: oklch(28.652% 0.09178 273.298);
-  --light-red: oklch(52.319% 0.16117 287.191);;
-  --bright-red: oklch(31.613% 0.05195 192.92);
+  --light-red: oklch(52.319% 0.16117 287.191);
+  --bright-red: oklch(57.307% 0.21896 284.599);
+  --dark-red: oklch(31.613% 0.05195 192.92);
   
   --tblack: oklch(67.451% 0.16643 340.79);
   --twhite: oklch(0.9672 0 0);

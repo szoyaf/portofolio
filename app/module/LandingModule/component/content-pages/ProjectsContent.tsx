@@ -5,18 +5,21 @@ import { ImagePreviewDialog } from "../../../../components/elements/ImagePreview
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { PROJECT_LIST, PROJECTS_TEXT, type ProjectItem } from "./const";
+import { getPortfolioData } from "~/lib/api";
+import type { PortfolioData, ProjectItem } from "./const";
 
 function ProjectImageCarousel({
   images,
   title,
+  projectText,
 }: {
   images: string[];
   title: string;
+  projectText: any;
 }) {
   const safeImages = useMemo(
-    () => (images.length ? images : [PROJECTS_TEXT.fallbackImage]),
-    [images],
+    () => (images.length ? images : [projectText.fallbackImage]),
+    [images, projectText],
   );
   const [activeIndex, setActiveIndex] = useState(0);
   const hasMultipleImages = safeImages.length > 1;
@@ -37,11 +40,11 @@ function ProjectImageCarousel({
     <div className="relative">
       <ImagePreviewDialog
         src={activeImage}
-        alt={`${title} ${PROJECTS_TEXT.previewAltSuffix} ${activeIndex + 1}`}
+        alt={`${title} ${projectText.previewAltSuffix} ${activeIndex + 1}`}
       >
         <LazyImage
           src={activeImage}
-          alt={`${title} ${PROJECTS_TEXT.previewAltSuffix} ${activeIndex + 1}`}
+          alt={`${title} ${projectText.previewAltSuffix} ${activeIndex + 1}`}
           wrapperClassName="w-full aspect-video"
           className="h-full w-full object-cover"
         />
@@ -52,7 +55,7 @@ function ProjectImageCarousel({
           <button
             type="button"
             onClick={previousImage}
-            aria-label={PROJECTS_TEXT.previousImageAriaLabel}
+            aria-label={projectText.previousImageAriaLabel}
             className="absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/55 p-1.5 text-white transition-colors hover:bg-black/75"
           >
             <ChevronLeft className="size-4" />
@@ -61,7 +64,7 @@ function ProjectImageCarousel({
           <button
             type="button"
             onClick={nextImage}
-            aria-label={PROJECTS_TEXT.nextImageAriaLabel}
+            aria-label={projectText.nextImageAriaLabel}
             className="absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/55 p-1.5 text-white transition-colors hover:bg-black/75"
           >
             <ChevronRight className="size-4" />
@@ -72,7 +75,7 @@ function ProjectImageCarousel({
               <button
                 key={`${title}-slide-${index}`}
                 type="button"
-                aria-label={`${PROJECTS_TEXT.goToImageAriaLabelPrefix} ${index + 1}`}
+                aria-label={`${projectText.goToImageAriaLabelPrefix} ${index + 1}`}
                 onClick={() => setActiveIndex(index)}
                 className={`size-1.75 rounded-full transition-colors ${
                   index === activeIndex ? "bg-white" : "bg-white/45"
@@ -86,10 +89,20 @@ function ProjectImageCarousel({
   );
 }
 
-function ProjectCard({ project }: { project: ProjectItem }) {
+function ProjectCard({
+  project,
+  projectText,
+}: {
+  project: ProjectItem;
+  projectText: any;
+}) {
   return (
     <div className="w-full rounded-pixel-sm min-h-10 bg-yellow">
-      <ProjectImageCarousel images={project.images} title={project.title} />
+      <ProjectImageCarousel
+        images={project.images}
+        title={project.title}
+        projectText={projectText}
+      />
       <div className="bg-blue flex flex-col gap-1 p-3 inner-shadow-pixel inner-shadow-pixel-pos-5 inner-shadow-pos-dark-blue inner-shadow-pos-opacity-100">
         <div className="text-h6 text-twhite text-stroke-4 text-stroke-dark-blue">
           {project.title}
@@ -120,7 +133,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
               >
                 <img
                   src="/icons/github.svg"
-                  alt={PROJECTS_TEXT.githubAlt}
+                  alt={projectText?.githubAlt}
                   className="size-4.5"
                 />
               </Button>
@@ -133,8 +146,8 @@ function ProjectCard({ project }: { project: ProjectItem }) {
                 onClick={() => window.open(project.liveUrl, "_blank")}
               >
                 <div className="flex flex-row gap-2.5 items-center justify-center">
-                  <span className="-mb-1">{PROJECTS_TEXT.liveDemoLabel}</span>
-                  <img src="/icons/link.svg" alt={PROJECTS_TEXT.openLinkAlt} />
+                  <span className="-mb-1">{projectText?.liveDemoLabel}</span>
+                  <img src="/icons/link.svg" alt={projectText?.openLinkAlt} />
                 </div>
               </Button>
             )}
@@ -149,8 +162,17 @@ export function ProjectsContent() {
   const REFRESH_DELAY_MS = 260;
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<HTMLDivElement[]>([]);
+  const [data, setData] = useState<PortfolioData | null>(null);
 
   useEffect(() => {
+    getPortfolioData().then(setData);
+  }, []);
+
+  useEffect(() => {
+    if (!data) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     const scroller = scrollerRef.current;
@@ -196,7 +218,7 @@ export function ProjectsContent() {
       window.clearTimeout(refreshTimer);
       ctx.revert();
     };
-  }, []);
+  }, [data]);
 
   const registerItemRef = (element: HTMLDivElement | null, index: number) => {
     if (!element) {
@@ -211,12 +233,12 @@ export function ProjectsContent() {
       className="max-h-100 w-full overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#236489_transparent]"
     >
       <div className="grid lg:grid-cols-2 gap-5 w-full shape-shadow-host box-shadow-pixel-5 box-shadow-dark-yellow box-shadow-opacity-100">
-        {PROJECT_LIST.map((project, index) => (
+        {data?.PROJECT_LIST.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
             ref={(element) => registerItemRef(element, index)}
           >
-            <ProjectCard project={project} />
+            <ProjectCard project={project} projectText={data?.PROJECTS_TEXT} />
           </div>
         ))}
       </div>

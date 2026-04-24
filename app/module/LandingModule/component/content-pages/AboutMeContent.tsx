@@ -3,30 +3,41 @@ import { LazyImage } from "../../../../components/elements/LazyImage";
 import { ImagePreviewDialog } from "../../../../components/elements/ImagePreviewDialog";
 import { useScrambleReveal } from "../animations/useScrambleReveal";
 import { useStaggerReveal } from "../animations/useStaggerReveal";
-import { ABOUT_TEXT } from "./const";
+import { getPortfolioData } from "~/lib/api";
 
 export function AboutMeContent() {
+  const [data, setData] = useState<any>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [activeWorkTitleIndex, setActiveWorkTitleIndex] = useState(0);
-  const displayWorkTitle = useScrambleReveal(
-    ABOUT_TEXT.workTitles[activeWorkTitleIndex],
-    {
-      stepDuration: 35,
-      startDelay: 120,
-    },
-  );
+  const workTitles = data?.ABOUT_TEXT?.workTitles ?? [];
 
   useEffect(() => {
+    getPortfolioData().then(setData);
+  }, []);
+
+  useEffect(() => {
+    if (!data || workTitles.length === 0) {
+      return;
+    }
+
     const roleRotateTimer = setInterval(() => {
       setActiveWorkTitleIndex(
-        (currentIndex) => (currentIndex + 1) % ABOUT_TEXT.workTitles.length,
+        (currentIndex) => (currentIndex + 1) % workTitles.length,
       );
     }, 2600);
 
     return () => {
       clearInterval(roleRotateTimer);
     };
-  }, []);
+  }, [data, workTitles.length]);
+
+  const displayWorkTitle = useScrambleReveal(
+    workTitles[activeWorkTitleIndex] ?? "",
+    {
+      stepDuration: 35,
+      startDelay: 120,
+    },
+  );
 
   useStaggerReveal(containerRef.current, {
     selector: "[data-about-anim]",
@@ -34,6 +45,8 @@ export function AboutMeContent() {
     y: 16,
     stagger: 0.08,
   });
+
+  if (!data) return null;
 
   return (
     <div
@@ -44,10 +57,13 @@ export function AboutMeContent() {
         data-about-anim
         className="w-[50%] lg:w-[30%] rounded-pixel-sm h-full"
       >
-        <ImagePreviewDialog src="/selfie.png" alt={ABOUT_TEXT.profileImageAlt}>
+        <ImagePreviewDialog
+          src="/selfie.png"
+          alt={data?.ABOUT_TEXT.profileImageAlt}
+        >
           <LazyImage
             src="/selfie.png"
-            alt={ABOUT_TEXT.profileImageAlt}
+            alt={data?.ABOUT_TEXT.profileImageAlt}
             className="h-full w-full"
           />
         </ImagePreviewDialog>
@@ -58,7 +74,7 @@ export function AboutMeContent() {
           className="flex flex-row gap-2.5 justify-start items-start"
         >
           <div className="text-h5 text-stroke-4 text-stroke-bright-red">
-            {ABOUT_TEXT.name}
+            {data?.ABOUT_TEXT.name}
           </div>
 
           <div className="text-h5 text-tblack">| {displayWorkTitle}</div>
@@ -69,9 +85,9 @@ export function AboutMeContent() {
           className="bg-dark-yellow rounded-pixel-sm flex flex-col gap-2 p-5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-pos-tblack inner-shadow-pos-opacity-25"
         >
           <div className="space-y-px">
-            <div className="text-twhite text-h6">{ABOUT_TEXT.major}</div>
+            <div className="text-twhite text-h6">{data?.ABOUT_TEXT.major}</div>
             <div className="text-dark-yellow text-h5 text-stroke-4 text-stroke-lighter-yellow">
-              {ABOUT_TEXT.university}
+              {data?.ABOUT_TEXT.university}
             </div>
           </div>
 
@@ -79,40 +95,44 @@ export function AboutMeContent() {
             <div className="flex flex-row gap-2.5 justify-start items-start">
               <img
                 src="/icons/date.svg"
-                alt={ABOUT_TEXT.calendarAlt}
+                alt={data?.ABOUT_TEXT.calendarAlt}
                 className="size-3.5"
               />
-              <div className="text-twhite font-bold">{ABOUT_TEXT.period}</div>
+              <div className="text-twhite font-bold">
+                {data?.ABOUT_TEXT.period}
+              </div>
             </div>
 
-            <div className="text-twhite font-semibold">{ABOUT_TEXT.bio}</div>
+            <div className="text-twhite font-semibold">
+              {data?.ABOUT_TEXT.bio}
+            </div>
           </div>
 
           <div className="flex flex-row gap-2">
             <img
               src="/icons/gpa.svg"
-              alt={ABOUT_TEXT.gpaAlt}
+              alt={data?.ABOUT_TEXT.gpaAlt}
               className="size-3.5"
             />
-            <div className="text-twhite text-h7">{ABOUT_TEXT.gpa}</div>
+            <div className="text-twhite text-h7">{data?.ABOUT_TEXT.gpa}</div>
           </div>
         </div>
 
         <div data-about-anim className="text-twhite text-h6">
           <span className="text-tblack">
-            {ABOUT_TEXT.languageLabel}
+            {data?.ABOUT_TEXT.languageLabel}
             <br />
           </span>
-          • {ABOUT_TEXT.languageLines[0]}
-          <br />• {ABOUT_TEXT.languageLines[1]}
+          • {data?.ABOUT_TEXT.languageLines[0]}
+          <br />• {data?.ABOUT_TEXT.languageLines[1]}
         </div>
 
         <div data-about-anim className="items-end text-tblack text-h6">
-          {ABOUT_TEXT.notePrefix}
+          {data?.ABOUT_TEXT.notePrefix}
           <span className="text-bright-red text-h4">
-            {ABOUT_TEXT.noteHighlight}
+            {data?.ABOUT_TEXT.noteHighlight}
           </span>
-          {ABOUT_TEXT.noteSuffix}
+          {data?.ABOUT_TEXT.noteSuffix}
         </div>
       </div>
     </div>

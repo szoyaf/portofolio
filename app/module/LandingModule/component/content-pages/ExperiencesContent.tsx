@@ -1,15 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { EXPERIENCE_LIST, PROJECTS_TEXT } from "./const";
+import type { PortfolioData } from "./const";
+import { getPortfolioData } from "~/lib/api";
 
 export function ExperiencesContent() {
   const REFRESH_DELAY_MS = 260;
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<HTMLDivElement[]>([]);
+  const [data, setData] = useState<PortfolioData | null>(null);
 
   useEffect(() => {
+    getPortfolioData().then(setData);
+  }, []);
+
+  useEffect(() => {
+    if (!data) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     const scroller = scrollerRef.current;
@@ -73,7 +83,7 @@ export function ExperiencesContent() {
       window.clearTimeout(refreshTimer);
       ctx.revert();
     };
-  }, []);
+  }, [data]);
 
   const registerItemRef = (element: HTMLDivElement | null, index: number) => {
     if (!element) {
@@ -88,7 +98,7 @@ export function ExperiencesContent() {
       className="max-h-100 w-full overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#236489_transparent]"
     >
       <div className="flex flex-col gap-5 w-full">
-        {EXPERIENCE_LIST.map((experience, index) => (
+        {data?.EXPERIENCE_LIST.map((experience, index) => (
           <div
             key={`${experience.company}-${experience.role}-${index}`}
             ref={(element) => registerItemRef(element, index)}
@@ -107,7 +117,7 @@ export function ExperiencesContent() {
                   >
                     <img
                       src="/icons/linkedin.svg"
-                      alt={PROJECTS_TEXT.linkedinAlt}
+                      alt={data?.PROJECTS_TEXT.linkedinAlt}
                       className="contact-icon size-5"
                     />
                   </Link>
@@ -122,7 +132,7 @@ export function ExperiencesContent() {
               <div className="flex flex-row gap-2 justify-start items-start">
                 <img
                   src="/icons/date-red.svg"
-                  alt={PROJECTS_TEXT.dateAlt}
+                  alt={data?.PROJECTS_TEXT.dateAlt}
                   className="size-3.5"
                 />
                 <div className="text-light-red font-bold">
