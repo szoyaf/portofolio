@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useFetcher } from "react-router";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
@@ -22,17 +22,12 @@ export function Menu() {
     startDelay: 260,
   });
 
-  const handleSubmitMessage = () => {
-    fetcher.submit(
-      {
-        name: messageName,
-        email: messageEmail,
-        message: messageContent,
-      },
-      { method: "POST" },
-    );
+  useEffect(() => {
+    if (fetcher.state !== "idle" || !fetcher.data) {
+      return;
+    }
 
-    if (fetcher.state === "idle" && fetcher.data?.success) {
+    if (fetcher.data.success) {
       setMessageName("");
       setMessageEmail("");
       setMessageContent("");
@@ -41,7 +36,27 @@ export function Menu() {
       toast.success("Message sent successfully!", {
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
+      return;
     }
+
+    if (fetcher.data.error) {
+      toast.error("Failed to send message", {
+        description:
+          fetcher.data.message || "An error occurred. Please try again.",
+      });
+    }
+  }, [fetcher.data, fetcher.state]);
+
+  const handleSubmitMessage = () => {
+    fetcher.submit(
+      {
+        name: messageName,
+        email: messageEmail,
+        message: messageContent,
+        actionType: "message",
+      },
+      { method: "POST" },
+    );
   };
 
   return (
@@ -136,11 +151,7 @@ export function Menu() {
 
       <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
         <Button className="w-full" asChild>
-          <a
-            href="/ShaneyZoyaFiandi_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/cv" target="_blank" rel="noopener noreferrer">
             Download CV <img src="/icons/Download.svg" alt="download" />
           </a>
         </Button>
