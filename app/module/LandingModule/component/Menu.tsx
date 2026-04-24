@@ -74,7 +74,7 @@ export function Menu() {
       </div>
 
       <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
-        <Card className="bg-blue w-full flex flex-col items-center justify-center rounded-pixel-lg px-5 py-6 gap-2.5 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
+        <Card className="bg-blue w-full flex flex-col items-center justify-center rounded-pixel-lg px-5 py-6 gap-2.5 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25">
           <div className="text-light-blue text-center text-h5 md:text-h6 lg:text-h5 underline-dots underline-dots-twhite">
             Contact Me!
           </div>
@@ -158,7 +158,7 @@ export function Menu() {
       </div>
 
       <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
-        <Card className="message-card bg-blue w-full flex flex-col rounded-pixel-lg px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
+        <Card className="message-card bg-blue w-full flex flex-col rounded-pixel-lg px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25">
           <Button
             type="button"
             variant="ghost"

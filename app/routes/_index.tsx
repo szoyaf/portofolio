@@ -4,7 +4,10 @@ import type { ActionFunctionArgs, MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Shaney Zoya Fiandi | Information Systems Student & Software Engineer Portfolio" },
+    {
+      title:
+        "Shaney Zoya Fiandi | Information Systems Student & Software Engineer Portfolio",
+    },
     {
       name: "description",
       content:
@@ -16,7 +19,10 @@ export const meta: MetaFunction = () => {
         "Shaney Zoya Fiandi, portfolio, web developer, information systems, Universitas Indonesia, React, TypeScript, Java, software engineering, system design, frontend developer, backend developer, full-stack developer, project showcase, technical experience",
     },
     { name: "author", content: "Shaney Zoya Fiandi" },
-    { property: "og:title", content: "Shaney Zoya Fiandi | Software Engineer Portfolio" },
+    {
+      property: "og:title",
+      content: "Shaney Zoya Fiandi | Software Engineer Portfolio",
+    },
     {
       property: "og:description",
       content:

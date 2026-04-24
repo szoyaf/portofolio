@@ -3,6 +3,7 @@ import { NavButton } from "../../../components/elements/NavButton";
 import { AboutMeContent } from "./content-pages/AboutMeContent";
 import { ExperiencesContent } from "./content-pages/ExperiencesContent";
 import { ProjectsContent } from "./content-pages/ProjectsContent";
+import { useTheme } from "next-themes";
 
 export function Content() {
   const NAV_EXIT_MS = 260;
@@ -100,6 +101,8 @@ export function Content() {
     }, NAV_EXIT_MS);
   };
 
+  const { theme, setTheme } = useTheme();
+
   return (
     <div className="flex flex-col w-[65%] lg:w-[75%] max-md:hidden">
       <div className="flex overflow-visible flex-row gap-4 justify-end items-center w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
@@ -112,6 +115,9 @@ export function Content() {
           className={`origin-top-right transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isIconFadingIn ? "opacity-0" : "opacity-100"
           }`}
+          onClick={() => {
+            setTheme(theme === "light" ? "dark" : "light");
+          }}
         />
         <div
           className={`flex flex-row gap-4 origin-top-right transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
@@ -152,7 +158,7 @@ export function Content() {
             : "max-h-350 scale-100 opacity-100 translate-y-0 -mt-0.5"
         }`}
       >
-        <div className="bg-yellow w-full min-h-40 h-fit rounded-pixel-lg-no-tr px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25">
+        <div className="bg-yellow w-full min-h-40 h-fit rounded-pixel-lg-no-tr px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25">
           <div
             className={`transition-opacity duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity] ${
               isSectionVisible ? "opacity-100" : "opacity-0 pointer-events-none"

@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "shape-shadow-host bg-yellow text-twhite rounded-pixel-lg inner-shadow-pixel inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:bg-kinda-yellow hover:inner-shadow-pos-opacity-80 aria-expanded:bg-yellow aria-expanded:text-twhite",
+          "shape-shadow-host bg-yellow text-twhite rounded-pixel-lg inner-shadow-pixel inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25 hover:bg-kinda-yellow hover:inner-shadow-pos-opacity-80 aria-expanded:bg-yellow aria-expanded:text-twhite",
         // outline:
         //   "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         // secondary:
         //   "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost: "hover:text-dark-blue aria-expanded:text-dark-blue",
-        light: "text-twhite inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow bg-light-yellow inner-shadow-pos-lighter-yellow inner-shadow-pos-opacity-100 hover:bg-yellow hover:inner-shadow-pos-opacity-80 aria-expanded:bg-lighter-yellow",
+        light: "text-twhite inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-black inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow bg-light-yellow inner-shadow-pos-lighter-yellow inner-shadow-pos-opacity-100 hover:bg-yellow hover:inner-shadow-pos-opacity-80 aria-expanded:bg-lighter-yellow",
         // destructive:
         //   "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         // link: "text-primary underline-offset-4 hover:underline",

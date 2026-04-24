@@ -2040,6 +2040,8 @@ body::-webkit-scrollbar {
   
   --color-tblack: var(--tblack);
   --color-twhite: var(--twhite);
+
+  --color-blackblack: var(--blackblack);
 }
 
 :root {
@@ -2096,6 +2098,8 @@ body::-webkit-scrollbar {
   --tblack: oklch(0.1957 0 0);
   --twhite: oklch(0.9672 0 0);
 
+  --blackblack: oklch(0.1957 0 0);
+
   --caret-color: var(--lightest-yellow);
   --selection-bg: color-mix(in oklab, var(--light-yellow) 52%, transparent);
   --selection-text: var(--twhite);
@@ -2134,24 +2138,26 @@ body::-webkit-scrollbar {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  --yellow: oklch(0.7082 0.1482 71.75);
-  --light-yellow: oklch(0.8148 0.1514 78.49);
-  --lighter-yellow: oklch(0.8783 0.1211 81.8);
-  --lightest-yellow: oklch(0.9416 0.0584 83);
-  --kinda-yellow: oklch(0.6817 0.139 72.88);
-  --dark-yellow: oklch(0.6184 0.1292 63.33);
+  --yellow: oklch(0.3859 0.1781 319.7);
+  --light-yellow: oklch(49.212% 0.2179 319.894);
+  --lighter-yellow: oklch(0.6385 0.0961 297.25);
+  --lightest-yellow: oklch(0.8173 0.0744 292.46);
+  --kinda-yellow: oklch(31.827% 0.13948 319.749);
+  --dark-yellow: oklch(31.874% 0.14953 319.819);
+  
+  --blue: oklch(0.3208 0.0376 297.35);
+  --light-blue: oklch(45.659% 0.07489 296.299);
+  --dark-blue: oklch(26.054% 0.03944 296.693);
+  --bgblue: oklch(0.2017 0.0428 325.02);
 
-  --blue: oklch(0.4608 0.0659 235.43);
-  --light-blue: oklch(0.6925 0.0606 228.17);
-  --dark-blue: oklch(0.4309 0.0773 231.87);
-  --bgblue: oklch(0.5155 0.079 229.44);
-
-  --red: oklch(0.4183 0.095 26.27);
-  --light-red: oklch(0.524 0.1127 25.82);
-  --bright-red: oklch(0.5112 0.209771 29.2339);
-
-  --tblack: oklch(0.1957 0 0);
+  --red: oklch(28.652% 0.09178 273.298);
+  --light-red: oklch(52.319% 0.16117 287.191);;
+  --bright-red: oklch(31.613% 0.05195 192.92);
+  
+  --tblack: oklch(67.451% 0.16643 340.79);
   --twhite: oklch(0.9672 0 0);
+
+  --blackblack: oklch(0.1957 0 0);
 
   --caret-color: var(--lighter-yellow);
   --selection-bg: color-mix(in oklab, var(--blue) 65%, transparent);
@@ -3067,7 +3073,7 @@ textarea,
     --inner-shadow-pos-color: var(--lightest-yellow);
   }
 
-  .inner-shadow-neg-black { --inner-shadow-neg-color: #000000; }
+  .inner-shadow-neg-black { --inner-shadow-neg-color: var(--blackblack); }
   .inner-shadow-neg-yellow { --inner-shadow-neg-color: var(--yellow); }
   .inner-shadow-neg-light-yellow { --inner-shadow-neg-color: var(--light-yellow); }
   .inner-shadow-neg-lighter-yellow { --inner-shadow-neg-color: var(--lighter-yellow); }

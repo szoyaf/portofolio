@@ -14,7 +14,7 @@ type NavButtonProps = {
 };
 
 const baseClasses =
-  "inline-flex w-fit min-w-max shrink-0 items-center justify-center whitespace-nowrap gap-2.5 text-tblack text-h7 lg:text-h5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-tblack inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow transition-all duration-200 ease-out hover:scale-105 active:scale-95";
+  "inline-flex w-fit min-w-max shrink-0 items-center justify-center whitespace-nowrap gap-2.5 text-tblack text-h7 lg:text-h5 inner-shadow-pixel inner-shadow-pixel-both-5 inner-shadow-neg-black inner-shadow-neg-opacity-25 hover:inner-shadow-pos-opacity-80 aria-expanded:bg-light-yellow transition-all duration-200 ease-out hover:scale-105 active:scale-95";
 
 const sizeClasses: Record<NavButtonSize, string> = {
   default: "rounded-pixel-sm-t pb-1.25 pt-2.5 px-3 lg:px-9",
