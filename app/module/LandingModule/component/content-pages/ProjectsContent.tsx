@@ -17,12 +17,33 @@ function ProjectImageCarousel({
   title: string;
   projectText: any;
 }) {
+  const AUTO_SLIDE_INTERVAL_MS = 5200;
   const safeImages = useMemo(
     () => (images.length ? images : [projectText.fallbackImage]),
     [images, projectText],
   );
   const [activeIndex, setActiveIndex] = useState(0);
   const hasMultipleImages = safeImages.length > 1;
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [safeImages]);
+
+  useEffect(() => {
+    if (!hasMultipleImages) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveIndex(
+        (previousIndex) => (previousIndex + 1) % safeImages.length,
+      );
+    }, AUTO_SLIDE_INTERVAL_MS);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [hasMultipleImages, safeImages.length]);
 
   const nextImage = () => {
     setActiveIndex((previousIndex) => (previousIndex + 1) % safeImages.length);
