@@ -7,10 +7,10 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   server: {
     host: "0.0.0.0",
-    port: 8080,
+    port: 3000,
   },
   preview: {
     host: "0.0.0.0",
-    port: 8080,
+    port: 3000,
   },
 });
