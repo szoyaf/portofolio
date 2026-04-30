@@ -6,6 +6,7 @@ import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { useScrambleReveal } from "./animations/useScrambleReveal";
 import { toast } from "sonner";
+import { Content } from "./Content";
 
 export function Menu() {
   const fetcher = useFetcher();
@@ -60,7 +61,7 @@ export function Menu() {
   };
 
   return (
-    <div className="flex flex-col gap-6 md:gap-3 lg:gap-5 xl:gap-7 w-full md:w-[35%] lg:w-[25%]">
+    <div className="relative flex flex-col gap-5 md:gap-3 lg:gap-5 xl:gap-7 w-full md:w-[35%] lg:w-[25%]">
       <div className="flex flex-col gap-3 lg:gap-2.5 justify-center items-center">
         <h1
           data-text="Zoya's Planet"
@@ -72,6 +73,8 @@ export function Menu() {
           {displaySubtitle}
         </p>
       </div>
+
+      <Content className="md:hidden" />
 
       <div className="w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
         <Card className="bg-blue w-full flex flex-col items-center justify-center rounded-pixel-lg px-5 py-6 gap-2.5 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-blue inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25">

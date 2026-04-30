@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type { PortfolioData } from "./const";
+import type { PortfolioData } from "../../const";
 import { getPortfolioData } from "~/lib/api";
 
 export function ExperiencesContent() {

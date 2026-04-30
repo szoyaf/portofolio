@@ -4,21 +4,28 @@ import { AboutMeContent } from "./content-pages/AboutMeContent";
 import { ExperiencesContent } from "./content-pages/ExperiencesContent";
 import { ProjectsContent } from "./content-pages/ProjectsContent";
 import { useTheme } from "next-themes";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
+import { cn } from "~/lib/utils";
 
-export function Content() {
+type SectionId = "about" | "experiences" | "projects";
+
+export function Content({ className }: { className?: string }) {
   const NAV_EXIT_MS = 260;
   const SECTION_SWAP_MS = 120;
-  const [activeSection, setActiveSection] = useState<
-    "about" | "experiences" | "projects"
-  >("about");
-  const [displayedSection, setDisplayedSection] = useState<
-    "about" | "experiences" | "projects"
-  >("about");
+  const [activeSection, setActiveSection] = useState<SectionId>("about");
+  const [displayedSection, setDisplayedSection] = useState<SectionId>("about");
   const [isSectionVisible, setIsSectionVisible] = useState(true);
   const [isRetracted, setIsRetracted] = useState(false);
   const [isIconCompact, setIsIconCompact] = useState(false);
   const [isIconFadingIn, setIsIconFadingIn] = useState(false);
   const [hideSectionButtons, setHideSectionButtons] = useState(false);
+  const [isSmOrLarger, setIsSmOrLarger] = useState(false);
   const retractTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const iconFadeRafRef = useRef<number | null>(null);
   const sectionSwapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
@@ -30,6 +37,19 @@ export function Content() {
     { id: "experiences", label: "Experiences" },
     { id: "projects", label: "Projects" },
   ] as const;
+
+  useEffect(() => {
+    const checkBreakpoint = () => {
+      setIsSmOrLarger(window.innerWidth >= 640);
+    };
+
+    checkBreakpoint();
+    window.addEventListener("resize", checkBreakpoint);
+
+    return () => {
+      window.removeEventListener("resize", checkBreakpoint);
+    };
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -104,8 +124,10 @@ export function Content() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex flex-col w-[65%] lg:w-[75%] max-md:hidden">
-      <div className="flex overflow-visible flex-row gap-4 justify-end items-center w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
+    <div
+      className={cn("flex flex-col w-full md:w-[65%] lg:w-[75%] ", className)}
+    >
+      <div className="flex overflow-visible flex-row max-sm:justify-between max-sm:px-6 max-sm:w-full sm:gap-4 justify-end items-center w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50">
         <NavButton
           label={
             <img src="/icons/Moon.svg" alt="Night" className="max-lg:size-3" />
@@ -120,7 +142,7 @@ export function Content() {
           }}
         />
         <div
-          className={`flex flex-row gap-4 origin-top-right transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`flex flex-row gap-4 max-sm:hidden origin-top-right transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             hideSectionButtons
               ? isRetracted
                 ? "hidden"
@@ -137,6 +159,31 @@ export function Content() {
             />
           ))}
         </div>
+        <div
+          className={`relative min-w-35 sm:hidden origin-top-right transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            hideSectionButtons
+              ? isRetracted
+                ? "hidden"
+                : "max-w-0 overflow-hidden opacity-0 translate-x-8 pointer-events-none"
+              : "max-w-60 overflow-visible opacity-100 translate-x-0"
+          }`}
+        >
+          <Select
+            value={activeSection}
+            onValueChange={(value) => setActiveSection(value as SectionId)}
+          >
+            <SelectTrigger aria-label="Select section">
+              <SelectValue placeholder="Select section" />
+            </SelectTrigger>
+            <SelectContent>
+              {sectionButtons.map((button) => (
+                <SelectItem key={button.id} value={button.id}>
+                  {button.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
         <NavButton
           label={
             <img src="/icons/dots.svg" alt="Menu" className="max-lg:size-3" />
@@ -150,15 +197,22 @@ export function Content() {
       </div>
 
       <div
-        className={`w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50 origin-top-right overflow-hidden will-change-[transform,opacity,max-height] transition-all ${
-          isRetracted ? "duration-200" : "duration-200"
+        className={`w-full shape-shadow-host box-shadow-pixel-10 box-shadow-dark-blue box-shadow-opacity-50 origin-top sm:origin-top-right overflow-hidden will-change-[transform,opacity,max-height] transition-all ${
+          isRetracted
+            ? "duration-150 sm:duration-200"
+            : "duration-150 sm:duration-200"
         } ease-[cubic-bezier(0.19,1,0.22,1)] ${
           isRetracted
             ? "max-h-0 scale-85 opacity-0 -translate-y-3 pointer-events-none"
             : "max-h-350 scale-100 opacity-100 translate-y-0 -mt-0.5"
         }`}
       >
-        <div className="bg-yellow w-full min-h-40 h-fit rounded-pixel-lg-no-tr px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25">
+        <div
+          className={cn(
+            "bg-yellow w-full min-h-40 h-fit px-5 py-6 gap-0 inner-shadow-pixel inner-shadow-pixel-both-10 inner-shadow-pos-light-yellow inner-shadow-pos-opacity-100 inner-shadow-neg-black inner-shadow-neg-opacity-25",
+            isSmOrLarger ? "rounded-pixel-lg-no-tr" : "rounded-pixel-lg",
+          )}
+        >
           <div
             className={`transition-opacity duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity] ${
               isSectionVisible ? "opacity-100" : "opacity-0 pointer-events-none"

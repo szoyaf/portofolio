@@ -71,7 +71,7 @@ export function AboutMeContent() {
       <div className="lg:w-[70%] flex flex-col gap-2.5 justify-start pt-2.5">
         <div
           data-about-anim
-          className="flex flex-row gap-2.5 justify-start items-start"
+          className="flex flex-col lg:flex-row gap-2.5 justify-start items-center lg:items-start"
         >
           <div className="text-h5 text-stroke-4 text-stroke-bright-red">
             {data?.ABOUT_TEXT.name}

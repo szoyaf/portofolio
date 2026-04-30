@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getPortfolioData } from "~/lib/api";
-import type { PortfolioData, ProjectItem } from "./const";
+import type { PortfolioData, ProjectItem } from "../../const";
 
 function ProjectImageCarousel({
   images,
