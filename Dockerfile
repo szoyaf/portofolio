@@ -23,5 +23,5 @@ COPY --from=production-dependencies-env /app/node_modules /app/node_modules
 COPY --from=build-env /app/build /app/build
 WORKDIR /app
 
-EXPOSE 5173
+EXPOSE 8080
 CMD ["yarn", "start"]
